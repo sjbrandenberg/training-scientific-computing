@@ -14,6 +14,19 @@
 
 ## Build locally
 
+```
+# Create a virtual env
+virtualenv env
+source env/bin/activate
+# Install required packages
+pip3 install -r requirements.txt
+# Build your book
+jupyter-book build .
+```
+
+This will create a `_build/html` directory with all the files. Open the `index.html` file to start
+
+## Jupyter example templates
 
 **Exercise:** 
 [![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-template/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/template/01-template-exercise.ipynb)
