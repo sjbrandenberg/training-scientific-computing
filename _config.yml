@@ -1,10 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Training Template
-author: Author Name
+title: Introduction to Scientific Computing
+author: Charlie Dey and Scott J. Brandenberg
 logo: logo.png
-copyright: "2024"
+copyright: "2025"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -20,7 +20,7 @@ launch_buttons:
   
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/DesignSafe-CI/training-template # Online location of your book
+  url: https://github.com/DesignSafe-CI/training-scientific-computing # Online location of your book
   path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
