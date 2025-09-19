@@ -1,128 +1,27 @@
-# Jupyter Book Training Template
+# Introduction to Scientific Computing using DesignSafe JupyterHub
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?logo=github)](https://img.shields.io/badge/GitHub-Pages-blue?logo=github)
-[![Jupyter Book](https://img.shields.io/badge/Powered%20by-Jupyter%20Book-orange)](https://jupyterbook.org)
+ [DesignSafe](https://designsafe-ci.org/) developed and maintains the CyberInfrastructure for the Natural Hazards Engineering Research Infrastructure, [NHERI](https://www.nsf.gov/eng/nheri), program. This webinar series covers the basics of scientific computing using the DesignSafe [JupyterHub](https://jupyter.designsafe-ci.org/). The DesignSafe Data Depot contains more than 1 PB of data related to natural hazards. The DesignSafe JupyterHub facilitates interaction with the data in the cloud without requiring users to download large datasets. 
+ 
+ The first webinar demonstrates how to access published datasets in the Data Depot through the JupyterHub, using an earthquake ground motion dataset as an example. We clean the data using Pandas, plot desired quantities using Matplotlib, and perform numerical computing using Numpy. The second webinar builds upon the first by applying advanced regression and machine learning methods to the dataset. 
 
-A customizable template for creating training materials on DesignSafe using [Jupyter Book](https://jupyterbook.org/en/stable/intro.html).
+> Maintained by Charlie Dey, University of Texas at Austin, and Scott J. Brandenberg, University of California, Los Angeles
 
-> Maintained by Krishna Kumar, University of Texas at Austin
-
-## Features
-- Pre-configured Jupyter Book structure
-- GitHub Pages integration
-- DesignSafe-specific workflows
-- Easy content authoring with Markdown/Jupyter Notebooks
-- Customizable table of contents
-- "Open in DesignSafe" button integration
-
-## Quick Start
-1. **Fork the Repository**  
-   [Fork original repository](https://github.com/DesignSafe-CI/training-template/fork)
-
-2. **Enable GitHub Pages**  
-   Go to Settings → Pages → Set source to `gh-pages` branch
-
-3. **Clone Your Fork**
-   ```bash
-   git clone https://github.com/DesignSafe-CI/training-template.git
-
-## Configuration
-1. Basic Settings (`_config.yml`)
-
-```yaml
-title: "Your Training Title"
-author: "Your Name"
-url: "https://your-username.github.io/training-template"
-```
-
-2. Table of Contents (`_toc.yml`)
-```yaml
-format: jb-book
-root: intro
-chapters:
-  - file: path/to/chapter1
-  - file: path/to/chapter2
-```
-
-3. DesignSafe Integration
-
-To add "Open in DesignSafe" buttons:
-
-- Upload notebooks to `Community Data >> Training`
-- Update notebook URLs to:
-[![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-template/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/template/01-template-exercise.ipynb)
-
-## Adding Content
-
-Supported formats:
-
-- 📝 Markdown (.md)
-
-- 📓 Jupyter Notebooks (.ipynb)
-
-- 🔄 MyST Markdown
-
-### Organization tips:
-
-```
-├── content/
-│   ├── intro.md
-│   ├── chapter1/
-│   │   ├── notebook.ipynb
-│   │   └── images/
-├── _toc.yml
-└── _config.yml
-```
-
-## Building Locally
-```bash
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# venv\Scripts\activate  # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Build book
-jupyter-book build .
-```
-
-## Serve built content (optional)
-
-> python -m http.server --directory _build/html
-
-## Deployment
-
-Commit changes:
-```bash
-    git add .
-    git commit -m "Update content"
-    git push origin main
-```
-
-GitHub Actions will automatically:
-
-    - Build book
-
-    - Deploy to GitHub Pages
-
-    - View at: https://<your-username>.github.io/training-template
+## Overview
+- Webinar 1: Working with published data 
+   - Using DesignSafe JupyterHub
+   - Interacting with data published in DesignSafe Data Depot
+   - Using Pandas to read CSV files and clean data
+   - Converting Pandas data into Numpy arrays
+   - Using Matplotlib to plot selected data
+   - Performing multi-linear regression using Numpy matrix operations
 
 
 ## License
 
 BSD 3-Clause License - See [LICENSE](LICENSE.md)
 
-## Jupyter example templates
+## Jupyter notebooks
 
-**Exercise:** 
-[![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-template/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/template/01-template-exercise.ipynb)
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DesignSafe-Training/DesignSafe-CI/blob/main/01-template-exercise.ipynb)
-
-**Solution:** 
-[![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-template/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/template/01-template-exercise.ipynb)
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DesignSafe-Training/DesignSafe-CI/blob/main/01-template-exercise.ipynb)
+**Webinar 1:** 
+[![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-scientific-computing/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/Webinar-Scientific-Computing-2025/01-working-with-published-data.ipynb)
 

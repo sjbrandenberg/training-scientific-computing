@@ -4,4 +4,4 @@
 format: jb-book
 root: README
 chapters:
-  - file: 01-template-exercise
+  - file: 01-working-with-published-data
