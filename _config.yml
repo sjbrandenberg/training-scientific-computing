@@ -20,8 +20,7 @@ launch_buttons:
   
 # Information about where the book exists on the web
 repository:
-  url: https://designsafe-ci.github.io/training-scientific-computing/ # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  url: https://sjbrandenberg.github.io/training-scientific-computing/ # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -31,3 +30,9 @@ html:
   use_repository_button: true
   extra_navbar: ""
   google_analytics_id: G-XXXXXXXXXX
+
+sphinx:
+  recursive_update: true
+  config:
+    html_theme_options:
+      repository_provider: github
