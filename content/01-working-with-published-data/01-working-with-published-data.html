@@ -1,0 +1,4225 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Accessing Data from NHERI-Published Directory &#8212; Introduction to Scientific Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/01-working-with-published-data/01-working-with-published-data';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Scientific Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Introduction to Scientific Computing using DesignSafe JupyterHub
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DesignSafe-CI/training-scientific-computing/blob/main/docs/content/01-working-with-published-data/01-working-with-published-data.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DesignSafe-CI/training-scientific-computing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DesignSafe-CI/training-scientific-computing/issues/new?title=Issue%20on%20page%20%2Fcontent/01-working-with-published-data/01-working-with-published-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/01-working-with-published-data/01-working-with-published-data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Accessing Data from NHERI-Published Directory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-path-to-a-published-dataset">1. Finding the path to a published dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-data-depot">1.1 Search Data Depot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-out-the-project-metadata-and-citation">1.2 Check out the project metadata and citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-readme-file-and-decide-which-data-to-use">1.3 Read the README file and decide which data to use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-designsafe-jupyterhub">1.4 Open DesignSafe JupyterHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browse-to-the-file-you-want-to-open">1.5 Browse to the file you want to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-path-to-the-file">1.6 Define the path to the file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-to-read-csv-file-and-clean-data">2. Using Pandas to read CSV file and clean data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-file">2.1 Read CSV file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-the-data">2.2 Clean the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-pandas-data-columns-to-numpy-arrays">3. Convert Pandas data columns to Numpy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-matplotlib-to-plot-selected-data-quantities">4. Use Matplotlib to plot selected data quantities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-magnitude-vs-distance">4.1 Plot of magnitude vs. distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-pga-rotd50-vs-rjb">4.2 Plot of pga_rotd50 vs. rjb</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multi-linear-regression-and-residuals-analysis">5. Perform multi-linear regression and residuals analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-linear-regression">5.1 Multi-linear regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-analysis">5.2 Residuals analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-residuals-vs-v-s30">5.3 Plot residuals vs. <span class="math notranslate nohighlight">\(V_{S30}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-from-analysis-of-residuals">5.4 Conclusions from analysis of residuals</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-data-from-nheri-published-directory">
+<h1>Accessing Data from NHERI-Published Directory<a class="headerlink" href="#accessing-data-from-nheri-published-directory" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>maintained by Scott J. Brandenberg and Charlie Dey</p>
+</div></blockquote>
+<p>A key benefit of the DesignSafe JupyterHub is that it lives in the cloud with the data that you want to work with. Why download all those large data files to your own computer when you can access the data directly? However, it might not be clear how to read files from the published data area. This notebook will illustrate how to do that, and will use PRJ-5772, cited below.</p>
+<p>Buckreis, T., C. Nweke, P. Wang, S. Brandenberg, M. Ramos-Sepulveda, R. Shams, S. Mohammed, R. Pretell, S. Mazzoni, P. Zimmaro, J. Stewart (2025). Archive of an Earthquake Ground Motion Relational Database (GMDB) for Engineering Applications. <a class="reference internal" href="#doi.org/10.17603/ds2-w0zm-y670"><span class="xref myst">doi.org/10.17603/ds2-w0zm-y670</span></a></p>
+<p>The notebook also demonstrates several key aspects of working with data using the DesignSafe JupyterHub. We first use Pandas to open a CSV file and load it into a DataFrame. We then use Pandas filtering functions to clean up some issues. Several columns from the DataFrame are then converted to Numpy arrays for further processing. Matplotlib is then used to plot the data in various ways, and multiple linear regression is performed using Numpy array processing methods.</p>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Finding the path to a published dataset</p></li>
+<li><p>Using Pandas to read CSV file and clean data</p></li>
+<li><p>Convert Pandas data into Numpy arrays</p></li>
+<li><p>Using Matplotlib to plot selected data</p></li>
+<li><p>Perform linear regression using Numpy matrix operations</p></li>
+</ol>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Pandas</p></li>
+<li><p>Numpy</p></li>
+<li><p>Matplotlib</p></li>
+</ol>
+</section>
+<section id="finding-the-path-to-a-published-dataset">
+<h2>1. Finding the path to a published dataset<a class="headerlink" href="#finding-the-path-to-a-published-dataset" title="Link to this heading">#</a></h2>
+<section id="search-data-depot">
+<h3>1.1 Search Data Depot<a class="headerlink" href="#search-data-depot" title="Link to this heading">#</a></h3>
+<p>The best way to find a dataset you might be interested in is to search the <a class="reference external" href="https://designsafe-ci.org/data/browser/public/designsafe.storage.published">DesignSafe data depot</a>. In this case, the phrase “GMDB”, shorthand for “Ground Motion Database”, was entered as a keyword and two projects were identified.</p>
+<figure>
+    <img src="images/DataDepotPublished.png" alt="Data Depot screenshot" />
+    <figcaption>Figure 1. Screenshot of published area of DesignSafe Data Depot.</figcaption>
+</figure>
+</section>
+<section id="check-out-the-project-metadata-and-citation">
+<h3>1.2 Check out the project metadata and citation<a class="headerlink" href="#check-out-the-project-metadata-and-citation" title="Link to this heading">#</a></h3>
+<p>For this training tutorial, we’ll use PRJ-5772.  Clicking on the project brings us to the project landing page, which shows the project title, authors, description, and a citation. If you use data from the published area of DesignSafe, please cite the dataset as suggested. It is better to cite the data and include the DOI than to say something like “I got the data from DesignSafe”. Data citations help us track impact, and points your readers to a more specific resource.</p>
+<figure>
+    <img src="images/PRJ-5772-landing-page.png" alt="PRJ-5772 landing page screenshot">
+    <figcaption>Figure 2. Screenshot of landing page for PRJ-5772.</figcaption>
+</figure>
+</section>
+<section id="read-the-readme-file-and-decide-which-data-to-use">
+<h3>1.3 Read the README file and decide which data to use<a class="headerlink" href="#read-the-readme-file-and-decide-which-data-to-use" title="Link to this heading">#</a></h3>
+<p>After briefly consulting the README.pdf file, we realize that the data we want to open is in the “Flatfiles” directory. And specifically, we are interested in the flatfile containing the RotD50 component of the earthquake ground motion intensity measures, which is in the file named “GMDB_Rotd50_Flatfile_Version_1.csv”.</p>
+<figure>
+    <img src="images/PRJ-5772-flatfiles.png">  
+    <figcaption>Figure 3. Screenshot of flatfile folder in PRJ-5772.</figcaption>
+</figure>
+</section>
+<section id="open-designsafe-jupyterhub">
+<h3>1.4 Open DesignSafe JupyterHub<a class="headerlink" href="#open-designsafe-jupyterhub" title="Link to this heading">#</a></h3>
+<p>OK, so now we know which file we want. Let’s pivot to opening that file through the DesignSafe JupyterHub. The first step is to open up a Jupyter server by going to <a class="reference external" href="https://jupyter.designsafe-ci.org">https://jupyter.designsafe-ci.org</a>, or through the Tools and Applications area of the <a class="reference external" href="https://designsafe-ci.org/use-designsafe/tools-applications/analysis/jupyter/">DesignSafe web portal</a>. Note that an HPC Jupyter instance is available through the DesignSafe web portal. We won’t be using that here. We are using the basic JupyterHub, which runs on a virtual machine that has computational power similar to a PC.</p>
+<p>Once you have authenticated and your server has started, you will see several directories in the panel on the left, including CommunityData, MyData, MyProjects, NEES, NHERI-Published, and Work, as shown below.</p>
+<figure>
+    <img src="images/JupyterLauncher.png">  
+    <figcaption>Figure 4. Screenshot of launcher in DesignSafe JupyterHub.</figcaption>
+</figure>
+</section>
+<section id="browse-to-the-file-you-want-to-open">
+<h3>1.5 Browse to the file you want to open<a class="headerlink" href="#browse-to-the-file-you-want-to-open" title="Link to this heading">#</a></h3>
+<p>Click on the NHERI-Published directory in the left panel. Be patient. There are lots of published projects, so it takes a while for that directory to load. Scroll down to PRJ-5772 and double click it. You should see a Flatfiles folder. Double-click that as well, and you will be in a directory with the data that we want to open, as shown below.</p>
+<figure>
+    <img src="images/JupyterPRJ-5772-Flatfiles.png">  
+    <figcaption>Figure 5. Screenshot of NHERI-Published/PRJ-5772/Flatfiles directory.</figcaption>
+</figure>  
+</section>
+<section id="define-the-path-to-the-file">
+<h3>1.6 Define the path to the file<a class="headerlink" href="#define-the-path-to-the-file" title="Link to this heading">#</a></h3>
+<p>Now that we’ve found the file we want to open, we need to set the path to the file within the DesignSafe JupyterHub. The best way to do this is to set the path relative to the home directory, which is /home/jupyter. That’s the directory that contains the CommunityData, MyData, MyProjects, NEES, NHERI-Published, and Work directories. So the path to the NHERI-Published directory is /home/jupyter/NHERI-Published. Adding on the project file path for our specific project, we end up the path shown below</p>
+<p><code class="docutils literal notranslate"><span class="pre">/home/jupyter/NHERI-Published/PRJ-5772/Flatfiles/GMDB_RotD50_Flatfile_Version_1.csv</span></code></p>
+<p>Alternatively, you could specify a relative path between the current working directory and the file you want to open. However, we don’t recommend using relative paths because if you ever need to share your notebook with someone else, or move it to a new directory, the relative path will not work and you’ll need to change a bunch of stuff. So it’s best to use the full path relative to the home directory.</p>
+</section>
+</section>
+<section id="using-pandas-to-read-csv-file-and-clean-data">
+<h2>2. Using Pandas to read CSV file and clean data<a class="headerlink" href="#using-pandas-to-read-csv-file-and-clean-data" title="Link to this heading">#</a></h2>
+<p>Now that we know the path to the file we want to open, let’s use Pandas to load it into a DataFrame. Pandas is a Python package that makes it easy to open a wide range of data files, including CSV, HDF5, SQL databases, Microsfot Excel, and others. Pandas is also very useful for cleaning data files, merging DataFrames using shared fields (similar to a SQL JOIN statement), and other data-related tasks. We’ll barely scratch the surface in this tutorial. We will use the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">pandas.read_csv</a> function to open up the data file, and we’ll then clean up some of the data using basic <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/indexing.html">indexing and data selection tools</a>. To find out more about what you can do with Pandas, visit <a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p>
+<section id="read-csv-file">
+<h3>2.1 Read CSV file<a class="headerlink" href="#read-csv-file" title="Link to this heading">#</a></h3>
+<p>The data file that we want to open is a comma-separated value (CSV) file. Pandas has a function called <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that opens the data file and loads it into a DataFrame object. In this case, we’ll load the entire file into a Pandas DataFrame even though we’ll use only a small subset of the data. For more efficient workflows with large data files, it’s good practice to use the built-in partial I/O functionality in Pandas. Specifically, you can use the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> operator to limit the numer of columns you retrieve from the dataset, and a combination of <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> to “chunk” the data. The file we are opening is over 200 MB, so it does take a few seconds to load the file, but the file is not so large that it can’t be loaded into memory. We suggest that you copy this notebook to your own workspace (e.g., MyData), and play with the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function options to see if you can improve the performance by limiting the columns that are read. In the cell below, we also import Pandas, Numpy, and Matplotlib since we’ll use them in the notebook. Finally, we have set the <code class="docutils literal notranslate"><span class="pre">low_memory=False</span></code> option because a warning is issued if we leave that off. That’s because some of the fields have data of mixed type. For example, the station_code field is sometimes only numbers, sometimes only letters, and sometimes a mix of both. By default, Pandas tries to use the same data type for each column to save memory. Setting <code class="docutils literal notranslate"><span class="pre">low_memory=False</span></code> disables this feature at the expense of performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;/home/jupyter/NHERI-Published/PRJ-5772/Flatfiles/GMDB_RotD50_Flatfile_Version_1.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The df.head() function will print the first 5 rows of the dataframe to a human-readable table</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>motion_id</th>
+      <th>event_id</th>
+      <th>station_id</th>
+      <th>path_id</th>
+      <th>user_id</th>
+      <th>public_motion</th>
+      <th>hypocenter_longitude</th>
+      <th>hypocenter_latitude</th>
+      <th>event_country</th>
+      <th>event_subdivision</th>
+      <th>event_name</th>
+      <th>comcat_id</th>
+      <th>event_type_id</th>
+      <th>datetime</th>
+      <th>time_zone</th>
+      <th>hypocenter_reported_depth</th>
+      <th>hypocenter_reported_depth_datum</th>
+      <th>epicenter_elevation</th>
+      <th>hypocenter_depth</th>
+      <th>magnitude</th>
+      <th>magnitude_type</th>
+      <th>magnitude_uncertainty_Kagan_model</th>
+      <th>magnitude_uncertainty_statistical</th>
+      <th>magnitude_sample_size</th>
+      <th>magnitude_uncertainty_study_class</th>
+      <th>strike</th>
+      <th>dip</th>
+      <th>rake</th>
+      <th>mechanism_based_on_Rake</th>
+      <th>slip_rate</th>
+      <th>seismic_moment</th>
+      <th>p_plunge</th>
+      <th>p_trend</th>
+      <th>t_plunge</th>
+      <th>t_trend</th>
+      <th>coseismic_surface_rupture</th>
+      <th>basis_for_surface_rupture</th>
+      <th>extensional_regime</th>
+      <th>extensional_regime_name</th>
+      <th>event_type</th>
+      <th>finite_fault_id</th>
+      <th>ztor</th>
+      <th>fault_length</th>
+      <th>fault_width</th>
+      <th>fault_area</th>
+      <th>ffm_model</th>
+      <th>ffm_complexity</th>
+      <th>ffm_reference</th>
+      <th>finite_fault_citation_id</th>
+      <th>finite_fault_kinematic_parameter_id</th>
+      <th>average_fault_displacement</th>
+      <th>rise_time</th>
+      <th>average_slip_velocity</th>
+      <th>preferred_rupture_velocity</th>
+      <th>average_vr_vs</th>
+      <th>percent_moment_release</th>
+      <th>existence_of_shallow_asperity</th>
+      <th>depth_to_shallowest_asperity</th>
+      <th>site_id</th>
+      <th>network_id</th>
+      <th>station_name</th>
+      <th>station_latitude</th>
+      <th>station_longitude</th>
+      <th>station_elevation</th>
+      <th>station_code</th>
+      <th>housing</th>
+      <th>cosmos_station_type</th>
+      <th>sensor_depth</th>
+      <th>installation_date</th>
+      <th>removal_date</th>
+      <th>network_code</th>
+      <th>network_name</th>
+      <th>network_type</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>operation_org</th>
+      <th>doi</th>
+      <th>network_citation_id</th>
+      <th>site_longitude</th>
+      <th>site_latitude</th>
+      <th>site_elevation</th>
+      <th>site_country</th>
+      <th>site_subdivision</th>
+      <th>site_name</th>
+      <th>vs30</th>
+      <th>vs30_lnstd</th>
+      <th>vs30_code_id</th>
+      <th>vs30_ref</th>
+      <th>geological_unit</th>
+      <th>geological_ref</th>
+      <th>geological_citation_id</th>
+      <th>slope_gradient</th>
+      <th>slope_resolution</th>
+      <th>terrain_class</th>
+      <th>terrain_citation_id</th>
+      <th>z1p0_preferred</th>
+      <th>z1p0_preferred_lnstd</th>
+      <th>z1p0_code_id</th>
+      <th>z2p5_preferred</th>
+      <th>z2p5_preferred_lnstd</th>
+      <th>z2p5_code_id</th>
+      <th>basin_province</th>
+      <th>gmx_c2</th>
+      <th>gmx_c3</th>
+      <th>rsbe</th>
+      <th>rcebe</th>
+      <th>epicentral_distance</th>
+      <th>hypocentral_distance</th>
+      <th>rjb</th>
+      <th>rrup</th>
+      <th>rx</th>
+      <th>ry</th>
+      <th>ry0</th>
+      <th>ravg</th>
+      <th>rebe</th>
+      <th>rsbe1</th>
+      <th>closest_point_latitude</th>
+      <th>closest_point_longitude</th>
+      <th>closest_point_depth</th>
+      <th>hanging_wall</th>
+      <th>source_to_site_azimuth</th>
+      <th>X</th>
+      <th>theta_D</th>
+      <th>Y</th>
+      <th>phi_D</th>
+      <th>ssga_strike_slip</th>
+      <th>ssga_dip_slip</th>
+      <th>s</th>
+      <th>d</th>
+      <th>ctildepr</th>
+      <th>T</th>
+      <th>U</th>
+      <th>time_series_metadata_id</th>
+      <th>instrument_type</th>
+      <th>colocated_instrument</th>
+      <th>instrument_natural_frequency</th>
+      <th>sampling_rate</th>
+      <th>late_p_trigger</th>
+      <th>late_s_trigger</th>
+      <th>multiple_wave_train</th>
+      <th>processing_type</th>
+      <th>filter_type</th>
+      <th>order_hpass</th>
+      <th>order_lpass</th>
+      <th>azimuth_h1</th>
+      <th>azimuth_h2</th>
+      <th>hpass_fc_h1</th>
+      <th>hpass_fc_h2</th>
+      <th>hpass_fc_v</th>
+      <th>lpass_fc_h1</th>
+      <th>lpass_fc_h2</th>
+      <th>lpass_fc_v</th>
+      <th>usable_frequency_factor</th>
+      <th>public_time_series</th>
+      <th>time_series_citation_id</th>
+      <th>pga_rotd50</th>
+      <th>pgv_rotd50</th>
+      <th>cav_rotd50</th>
+      <th>cav5_rotd50</th>
+      <th>ia_rotd50</th>
+      <th>damping</th>
+      <th>psa_rotd50(0p010s)</th>
+      <th>psa_rotd50(0p020s)</th>
+      <th>psa_rotd50(0p022s)</th>
+      <th>psa_rotd50(0p025s)</th>
+      <th>psa_rotd50(0p029s)</th>
+      <th>psa_rotd50(0p030s)</th>
+      <th>psa_rotd50(0p032s)</th>
+      <th>psa_rotd50(0p035s)</th>
+      <th>psa_rotd50(0p036s)</th>
+      <th>psa_rotd50(0p040s)</th>
+      <th>psa_rotd50(0p042s)</th>
+      <th>psa_rotd50(0p044s)</th>
+      <th>psa_rotd50(0p045s)</th>
+      <th>psa_rotd50(0p046s)</th>
+      <th>psa_rotd50(0p048s)</th>
+      <th>psa_rotd50(0p050s)</th>
+      <th>psa_rotd50(0p055s)</th>
+      <th>psa_rotd50(0p060s)</th>
+      <th>psa_rotd50(0p065s)</th>
+      <th>psa_rotd50(0p067s)</th>
+      <th>psa_rotd50(0p070s)</th>
+      <th>psa_rotd50(0p075s)</th>
+      <th>psa_rotd50(0p080s)</th>
+      <th>psa_rotd50(0p085s)</th>
+      <th>psa_rotd50(0p090s)</th>
+      <th>psa_rotd50(0p095s)</th>
+      <th>psa_rotd50(0p100s)</th>
+      <th>psa_rotd50(0p110s)</th>
+      <th>psa_rotd50(0p120s)</th>
+      <th>psa_rotd50(0p130s)</th>
+      <th>psa_rotd50(0p133s)</th>
+      <th>psa_rotd50(0p140s)</th>
+      <th>psa_rotd50(0p150s)</th>
+      <th>psa_rotd50(0p160s)</th>
+      <th>psa_rotd50(0p170s)</th>
+      <th>psa_rotd50(0p180s)</th>
+      <th>psa_rotd50(0p190s)</th>
+      <th>psa_rotd50(0p200s)</th>
+      <th>psa_rotd50(0p220s)</th>
+      <th>psa_rotd50(0p240s)</th>
+      <th>psa_rotd50(0p250s)</th>
+      <th>psa_rotd50(0p260s)</th>
+      <th>psa_rotd50(0p280s)</th>
+      <th>psa_rotd50(0p290s)</th>
+      <th>psa_rotd50(0p300s)</th>
+      <th>psa_rotd50(0p320s)</th>
+      <th>psa_rotd50(0p340s)</th>
+      <th>psa_rotd50(0p350s)</th>
+      <th>psa_rotd50(0p360s)</th>
+      <th>psa_rotd50(0p380s)</th>
+      <th>psa_rotd50(0p400s)</th>
+      <th>psa_rotd50(0p420s)</th>
+      <th>psa_rotd50(0p440s)</th>
+      <th>psa_rotd50(0p450s)</th>
+      <th>psa_rotd50(0p460s)</th>
+      <th>psa_rotd50(0p480s)</th>
+      <th>psa_rotd50(0p500s)</th>
+      <th>psa_rotd50(0p550s)</th>
+      <th>psa_rotd50(0p600s)</th>
+      <th>psa_rotd50(0p650s)</th>
+      <th>psa_rotd50(0p667s)</th>
+      <th>psa_rotd50(0p700s)</th>
+      <th>psa_rotd50(0p750s)</th>
+      <th>psa_rotd50(0p800s)</th>
+      <th>psa_rotd50(0p850s)</th>
+      <th>psa_rotd50(0p900s)</th>
+      <th>psa_rotd50(0p950s)</th>
+      <th>psa_rotd50(1p000s)</th>
+      <th>psa_rotd50(1p100s)</th>
+      <th>psa_rotd50(1p200s)</th>
+      <th>psa_rotd50(1p300s)</th>
+      <th>psa_rotd50(1p400s)</th>
+      <th>psa_rotd50(1p500s)</th>
+      <th>psa_rotd50(1p600s)</th>
+      <th>psa_rotd50(1p700s)</th>
+      <th>psa_rotd50(1p800s)</th>
+      <th>psa_rotd50(1p900s)</th>
+      <th>psa_rotd50(2p000s)</th>
+      <th>psa_rotd50(2p200s)</th>
+      <th>psa_rotd50(2p400s)</th>
+      <th>psa_rotd50(2p500s)</th>
+      <th>psa_rotd50(2p600s)</th>
+      <th>psa_rotd50(2p800s)</th>
+      <th>psa_rotd50(3p000s)</th>
+      <th>psa_rotd50(3p200s)</th>
+      <th>psa_rotd50(3p400s)</th>
+      <th>psa_rotd50(3p500s)</th>
+      <th>psa_rotd50(3p600s)</th>
+      <th>psa_rotd50(3p800s)</th>
+      <th>psa_rotd50(4p000s)</th>
+      <th>psa_rotd50(4p200s)</th>
+      <th>psa_rotd50(4p400s)</th>
+      <th>psa_rotd50(4p600s)</th>
+      <th>psa_rotd50(4p800s)</th>
+      <th>psa_rotd50(5p000s)</th>
+      <th>psa_rotd50(5p500s)</th>
+      <th>psa_rotd50(6p000s)</th>
+      <th>psa_rotd50(6p500s)</th>
+      <th>psa_rotd50(7p000s)</th>
+      <th>psa_rotd50(7p500s)</th>
+      <th>psa_rotd50(8p000s)</th>
+      <th>psa_rotd50(8p500s)</th>
+      <th>psa_rotd50(9p000s)</th>
+      <th>psa_rotd50(9p500s)</th>
+      <th>psa_rotd50(10p000s)</th>
+      <th>psa_rotd50(11p000s)</th>
+      <th>psa_rotd50(12p000s)</th>
+      <th>psa_rotd50(13p000s)</th>
+      <th>psa_rotd50(14p000s)</th>
+      <th>psa_rotd50(15p000s)</th>
+      <th>psa_rotd50(20p000s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>3</td>
+      <td>132</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-125.100</td>
+      <td>40.4000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Humbolt Bay</td>
+      <td>iscgem902937</td>
+      <td>1</td>
+      <td>1937-02-07 04:42:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>NOAA96 (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>5.80</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>196.2</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>5.620000e+24</td>
+      <td>0.00</td>
+      <td>151.20</td>
+      <td>0.00</td>
+      <td>61.20</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>3</td>
+      <td>5.77794</td>
+      <td>9.54857</td>
+      <td>7.08636</td>
+      <td>67.6646</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>73.3889</td>
+      <td>74.0671</td>
+      <td>70.86000</td>
+      <td>71.09520</td>
+      <td>-62.30790</td>
+      <td>-38.5265</td>
+      <td>33.7471</td>
+      <td>73.8696</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.44334</td>
+      <td>-125.08345</td>
+      <td>5.778</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-62.30790</td>
+      <td>-33.7471</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>225.0</td>
+      <td>315.0</td>
+      <td>0.20</td>
+      <td>0.30</td>
+      <td>0.50</td>
+      <td>11.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.040961</td>
+      <td>2.79070</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.040997</td>
+      <td>0.041184</td>
+      <td>0.041234</td>
+      <td>0.041309</td>
+      <td>0.041490</td>
+      <td>0.041511</td>
+      <td>0.041590</td>
+      <td>0.041759</td>
+      <td>0.041802</td>
+      <td>0.041704</td>
+      <td>0.041852</td>
+      <td>0.042186</td>
+      <td>0.042261</td>
+      <td>0.042364</td>
+      <td>0.042751</td>
+      <td>0.043054</td>
+      <td>0.042583</td>
+      <td>0.042825</td>
+      <td>0.043674</td>
+      <td>0.043823</td>
+      <td>0.044051</td>
+      <td>0.044966</td>
+      <td>0.046361</td>
+      <td>0.049794</td>
+      <td>0.052278</td>
+      <td>0.053464</td>
+      <td>0.055675</td>
+      <td>0.053223</td>
+      <td>0.065446</td>
+      <td>0.085192</td>
+      <td>0.086976</td>
+      <td>0.088631</td>
+      <td>0.090010</td>
+      <td>0.092072</td>
+      <td>0.096094</td>
+      <td>0.101286</td>
+      <td>0.102528</td>
+      <td>0.102349</td>
+      <td>0.112755</td>
+      <td>0.098703</td>
+      <td>0.093900</td>
+      <td>0.092540</td>
+      <td>0.098893</td>
+      <td>0.104211</td>
+      <td>0.111019</td>
+      <td>0.116172</td>
+      <td>0.126128</td>
+      <td>0.121098</td>
+      <td>0.115378</td>
+      <td>0.098382</td>
+      <td>0.095192</td>
+      <td>0.089718</td>
+      <td>0.079701</td>
+      <td>0.077055</td>
+      <td>0.075329</td>
+      <td>0.080853</td>
+      <td>0.082295</td>
+      <td>0.081349</td>
+      <td>0.077760</td>
+      <td>0.075255</td>
+      <td>0.070986</td>
+      <td>0.063358</td>
+      <td>0.056946</td>
+      <td>0.047057</td>
+      <td>0.039890</td>
+      <td>0.035645</td>
+      <td>0.036656</td>
+      <td>0.035785</td>
+      <td>0.030533</td>
+      <td>0.028635</td>
+      <td>0.025149</td>
+      <td>0.021392</td>
+      <td>0.016157</td>
+      <td>0.013365</td>
+      <td>0.012527</td>
+      <td>0.011063</td>
+      <td>0.010959</td>
+      <td>0.009347</td>
+      <td>0.007861</td>
+      <td>0.006711</td>
+      <td>0.006156</td>
+      <td>0.005439</td>
+      <td>0.004035</td>
+      <td>0.002960</td>
+      <td>0.002964</td>
+      <td>0.002939</td>
+      <td>0.002803</td>
+      <td>0.002568</td>
+      <td>0.002124</td>
+      <td>0.001722</td>
+      <td>0.001537</td>
+      <td>0.001590</td>
+      <td>0.001425</td>
+      <td>0.001257</td>
+      <td>0.000990</td>
+      <td>0.000766</td>
+      <td>0.000527</td>
+      <td>0.000497</td>
+      <td>0.000403</td>
+      <td>0.000335</td>
+      <td>0.000288</td>
+      <td>0.000255</td>
+      <td>0.000226</td>
+      <td>0.000201</td>
+      <td>0.000180</td>
+      <td>0.000147</td>
+      <td>0.000122</td>
+      <td>0.000103</td>
+      <td>0.000088</td>
+      <td>0.000077</td>
+      <td>0.000044</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>4</td>
+      <td>74</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-115.217</td>
+      <td>32.9000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Imperial Valley-01</td>
+      <td>ci3364641</td>
+      <td>1</td>
+      <td>1938-06-06 02:42:00</td>
+      <td>UTC</td>
+      <td>16.0</td>
+      <td>Doser and Kanamori (1986) (ground surface)</td>
+      <td>0.022</td>
+      <td>16.0</td>
+      <td>5.00</td>
+      <td>U</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>205.5</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>3.550000e+23</td>
+      <td>0.00</td>
+      <td>160.50</td>
+      <td>0.00</td>
+      <td>70.50</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>1.0</td>
+      <td>Gulf Rifted Margin (SCEC)</td>
+      <td>Shallow Crustal</td>
+      <td>4</td>
+      <td>13.82500</td>
+      <td>3.57949</td>
+      <td>3.53467</td>
+      <td>12.6523</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>74</td>
+      <td>6</td>
+      <td>El Centro Array #9</td>
+      <td>32.79400</td>
+      <td>-115.54900</td>
+      <td>-15.0</td>
+      <td>117</td>
+      <td>E</td>
+      <td>26.0</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>CE</td>
+      <td>California Strong Motion Instrumentation Program</td>
+      <td>permanent</td>
+      <td>1900-01-01</td>
+      <td>9999-01-01</td>
+      <td>California Division of Mines and Geology (CDMG)</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>-115.54900</td>
+      <td>32.79400</td>
+      <td>-15.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>El Centro Array #9</td>
+      <td>213.44</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 75</td>
+      <td>Qal1</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.001880</td>
+      <td>30 arc-sec</td>
+      <td>16.0</td>
+      <td>1478</td>
+      <td>903.5000</td>
+      <td>-999.000000</td>
+      <td>4.0</td>
+      <td>3015.500</td>
+      <td>-999.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>33.1789</td>
+      <td>36.8353</td>
+      <td>31.90920</td>
+      <td>34.77540</td>
+      <td>23.01880</td>
+      <td>23.8908</td>
+      <td>22.0982</td>
+      <td>36.6510</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>32.88535</td>
+      <td>-115.22522</td>
+      <td>13.825</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>23.01880</td>
+      <td>25.6833</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.70</td>
+      <td>0.50</td>
+      <td>0.80</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>22.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.018449</td>
+      <td>0.64551</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.018463</td>
+      <td>0.018787</td>
+      <td>0.018756</td>
+      <td>0.019011</td>
+      <td>0.019573</td>
+      <td>0.019634</td>
+      <td>0.019446</td>
+      <td>0.019363</td>
+      <td>0.019827</td>
+      <td>0.022238</td>
+      <td>0.022127</td>
+      <td>0.022418</td>
+      <td>0.022243</td>
+      <td>0.022458</td>
+      <td>0.024063</td>
+      <td>0.024304</td>
+      <td>0.025020</td>
+      <td>0.026804</td>
+      <td>0.029008</td>
+      <td>0.029413</td>
+      <td>0.030663</td>
+      <td>0.031392</td>
+      <td>0.038367</td>
+      <td>0.044387</td>
+      <td>0.046177</td>
+      <td>0.044336</td>
+      <td>0.039888</td>
+      <td>0.041810</td>
+      <td>0.042431</td>
+      <td>0.043055</td>
+      <td>0.046374</td>
+      <td>0.049669</td>
+      <td>0.051333</td>
+      <td>0.046646</td>
+      <td>0.041096</td>
+      <td>0.040487</td>
+      <td>0.043451</td>
+      <td>0.041947</td>
+      <td>0.041519</td>
+      <td>0.046460</td>
+      <td>0.046283</td>
+      <td>0.045511</td>
+      <td>0.037262</td>
+      <td>0.032165</td>
+      <td>0.027698</td>
+      <td>0.025279</td>
+      <td>0.025275</td>
+      <td>0.027570</td>
+      <td>0.027242</td>
+      <td>0.026292</td>
+      <td>0.029476</td>
+      <td>0.030415</td>
+      <td>0.029320</td>
+      <td>0.028731</td>
+      <td>0.027912</td>
+      <td>0.024318</td>
+      <td>0.021552</td>
+      <td>0.018637</td>
+      <td>0.013593</td>
+      <td>0.012919</td>
+      <td>0.011534</td>
+      <td>0.011099</td>
+      <td>0.009689</td>
+      <td>0.009862</td>
+      <td>0.008247</td>
+      <td>0.007341</td>
+      <td>0.006403</td>
+      <td>0.006027</td>
+      <td>0.004665</td>
+      <td>0.004305</td>
+      <td>0.003677</td>
+      <td>0.002871</td>
+      <td>0.002115</td>
+      <td>0.001554</td>
+      <td>0.001344</td>
+      <td>0.001215</td>
+      <td>0.001128</td>
+      <td>0.000959</td>
+      <td>0.001029</td>
+      <td>0.000918</td>
+      <td>0.000724</td>
+      <td>0.000625</td>
+      <td>0.000511</td>
+      <td>0.000382</td>
+      <td>0.000316</td>
+      <td>0.000256</td>
+      <td>0.000233</td>
+      <td>0.000214</td>
+      <td>0.000186</td>
+      <td>0.000165</td>
+      <td>0.000149</td>
+      <td>0.000137</td>
+      <td>0.000127</td>
+      <td>0.000117</td>
+      <td>0.000108</td>
+      <td>0.000087</td>
+      <td>0.000071</td>
+      <td>0.000058</td>
+      <td>0.000048</td>
+      <td>0.000040</td>
+      <td>0.000035</td>
+      <td>0.000031</td>
+      <td>0.000027</td>
+      <td>0.000024</td>
+      <td>0.000022</td>
+      <td>0.000018</td>
+      <td>0.000016</td>
+      <td>0.000013</td>
+      <td>0.000012</td>
+      <td>0.000010</td>
+      <td>0.000006</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>5</td>
+      <td>132</td>
+      <td>3</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-124.800</td>
+      <td>40.3000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Northwest Calif-01</td>
+      <td>iscgem902671</td>
+      <td>1</td>
+      <td>1938-09-12 06:10:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>Earth Model (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>5.50</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>35.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>2.000000e+24</td>
+      <td>0.00</td>
+      <td>350.00</td>
+      <td>0.00</td>
+      <td>260.00</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>5</td>
+      <td>6.68056</td>
+      <td>6.57572</td>
+      <td>4.42978</td>
+      <td>29.1290</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>54.8024</td>
+      <td>55.7073</td>
+      <td>51.78400</td>
+      <td>52.21320</td>
+      <td>19.49760</td>
+      <td>51.2610</td>
+      <td>47.9732</td>
+      <td>55.4959</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.32396</td>
+      <td>-124.77815</td>
+      <td>6.681</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>19.49760</td>
+      <td>54.5489</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>45.0</td>
+      <td>135.0</td>
+      <td>0.50</td>
+      <td>0.13</td>
+      <td>0.20</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.122180</td>
+      <td>6.56390</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.122486</td>
+      <td>0.124145</td>
+      <td>0.123066</td>
+      <td>0.123004</td>
+      <td>0.124997</td>
+      <td>0.125417</td>
+      <td>0.125574</td>
+      <td>0.125862</td>
+      <td>0.126668</td>
+      <td>0.132375</td>
+      <td>0.132790</td>
+      <td>0.132232</td>
+      <td>0.132773</td>
+      <td>0.133183</td>
+      <td>0.131357</td>
+      <td>0.127033</td>
+      <td>0.136803</td>
+      <td>0.143229</td>
+      <td>0.139192</td>
+      <td>0.134213</td>
+      <td>0.137720</td>
+      <td>0.151516</td>
+      <td>0.156608</td>
+      <td>0.152146</td>
+      <td>0.142823</td>
+      <td>0.145294</td>
+      <td>0.156934</td>
+      <td>0.175118</td>
+      <td>0.185073</td>
+      <td>0.205191</td>
+      <td>0.216298</td>
+      <td>0.241475</td>
+      <td>0.246802</td>
+      <td>0.291962</td>
+      <td>0.300765</td>
+      <td>0.323005</td>
+      <td>0.339681</td>
+      <td>0.324218</td>
+      <td>0.261282</td>
+      <td>0.250309</td>
+      <td>0.232767</td>
+      <td>0.246893</td>
+      <td>0.279668</td>
+      <td>0.264801</td>
+      <td>0.271066</td>
+      <td>0.259114</td>
+      <td>0.212736</td>
+      <td>0.204587</td>
+      <td>0.200849</td>
+      <td>0.194018</td>
+      <td>0.211587</td>
+      <td>0.242223</td>
+      <td>0.258561</td>
+      <td>0.258287</td>
+      <td>0.257365</td>
+      <td>0.246154</td>
+      <td>0.223093</td>
+      <td>0.155655</td>
+      <td>0.115007</td>
+      <td>0.107760</td>
+      <td>0.104971</td>
+      <td>0.102093</td>
+      <td>0.091499</td>
+      <td>0.090291</td>
+      <td>0.092053</td>
+      <td>0.085738</td>
+      <td>0.093186</td>
+      <td>0.093659</td>
+      <td>0.051430</td>
+      <td>0.041416</td>
+      <td>0.042914</td>
+      <td>0.036200</td>
+      <td>0.026785</td>
+      <td>0.021614</td>
+      <td>0.019643</td>
+      <td>0.016383</td>
+      <td>0.013886</td>
+      <td>0.013654</td>
+      <td>0.010225</td>
+      <td>0.007973</td>
+      <td>0.007163</td>
+      <td>0.006204</td>
+      <td>0.005247</td>
+      <td>0.004022</td>
+      <td>0.003611</td>
+      <td>0.003199</td>
+      <td>0.003029</td>
+      <td>0.002844</td>
+      <td>0.002599</td>
+      <td>0.002372</td>
+      <td>0.002139</td>
+      <td>0.001883</td>
+      <td>0.001667</td>
+      <td>0.001525</td>
+      <td>0.001398</td>
+      <td>0.001134</td>
+      <td>0.000960</td>
+      <td>0.000815</td>
+      <td>0.000675</td>
+      <td>0.000559</td>
+      <td>0.000472</td>
+      <td>0.000401</td>
+      <td>0.000348</td>
+      <td>0.000309</td>
+      <td>0.000276</td>
+      <td>0.000228</td>
+      <td>0.000193</td>
+      <td>0.000166</td>
+      <td>0.000144</td>
+      <td>0.000126</td>
+      <td>0.000072</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>6</td>
+      <td>74</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-115.416</td>
+      <td>32.7601</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Imperial Valley-02</td>
+      <td>ci3365279</td>
+      <td>1</td>
+      <td>1940-05-19 04:37:00</td>
+      <td>UTC</td>
+      <td>8.8</td>
+      <td>Earth Model (ground surface)</td>
+      <td>-0.002</td>
+      <td>8.8</td>
+      <td>6.95</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>0.072</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>323.0</td>
+      <td>80.0</td>
+      <td>180.0</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>2.990000e+26</td>
+      <td>7.05</td>
+      <td>187.56</td>
+      <td>7.05</td>
+      <td>278.44</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Gulf Rifted Margin (SCEC)</td>
+      <td>Shallow Crustal</td>
+      <td>6</td>
+      <td>0.00000</td>
+      <td>63.00000</td>
+      <td>13.00000</td>
+      <td>818.8000</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>101.845</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>74</td>
+      <td>6</td>
+      <td>El Centro Array #9</td>
+      <td>32.79400</td>
+      <td>-115.54900</td>
+      <td>-15.0</td>
+      <td>117</td>
+      <td>E</td>
+      <td>26.0</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>CE</td>
+      <td>California Strong Motion Instrumentation Program</td>
+      <td>permanent</td>
+      <td>1900-01-01</td>
+      <td>9999-01-01</td>
+      <td>California Division of Mines and Geology (CDMG)</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>-115.54900</td>
+      <td>32.79400</td>
+      <td>-15.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>El Centro Array #9</td>
+      <td>213.44</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 75</td>
+      <td>Qal1</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.001880</td>
+      <td>30 arc-sec</td>
+      <td>16.0</td>
+      <td>1478</td>
+      <td>903.5000</td>
+      <td>-999.000000</td>
+      <td>4.0</td>
+      <td>3015.500</td>
+      <td>-999.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>12.9928</td>
+      <td>15.6925</td>
+      <td>6.08706</td>
+      <td>6.08706</td>
+      <td>-6.08708</td>
+      <td>19.3988</td>
+      <td>0.0000</td>
+      <td>15.7876</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>32.82699</td>
+      <td>-115.49704</td>
+      <td>0.000</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-6.08708</td>
+      <td>50.9282</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>100.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>180.0</td>
+      <td>270.0</td>
+      <td>0.20</td>
+      <td>0.13</td>
+      <td>0.20</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.233490</td>
+      <td>31.29900</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.234619</td>
+      <td>0.233565</td>
+      <td>0.233734</td>
+      <td>0.233992</td>
+      <td>0.234367</td>
+      <td>0.234452</td>
+      <td>0.234606</td>
+      <td>0.234815</td>
+      <td>0.234921</td>
+      <td>0.235976</td>
+      <td>0.236058</td>
+      <td>0.236411</td>
+      <td>0.236837</td>
+      <td>0.237392</td>
+      <td>0.238353</td>
+      <td>0.239346</td>
+      <td>0.240659</td>
+      <td>0.242577</td>
+      <td>0.244875</td>
+      <td>0.248429</td>
+      <td>0.251819</td>
+      <td>0.273381</td>
+      <td>0.314595</td>
+      <td>0.326510</td>
+      <td>0.342594</td>
+      <td>0.394221</td>
+      <td>0.426959</td>
+      <td>0.432456</td>
+      <td>0.496467</td>
+      <td>0.582133</td>
+      <td>0.590928</td>
+      <td>0.538106</td>
+      <td>0.552265</td>
+      <td>0.521962</td>
+      <td>0.587592</td>
+      <td>0.588928</td>
+      <td>0.577732</td>
+      <td>0.577730</td>
+      <td>0.655618</td>
+      <td>0.609126</td>
+      <td>0.611714</td>
+      <td>0.599689</td>
+      <td>0.558982</td>
+      <td>0.541735</td>
+      <td>0.526303</td>
+      <td>0.600615</td>
+      <td>0.582754</td>
+      <td>0.561163</td>
+      <td>0.552079</td>
+      <td>0.580982</td>
+      <td>0.556247</td>
+      <td>0.530241</td>
+      <td>0.607599</td>
+      <td>0.659465</td>
+      <td>0.676709</td>
+      <td>0.641114</td>
+      <td>0.629952</td>
+      <td>0.618842</td>
+      <td>0.559427</td>
+      <td>0.468516</td>
+      <td>0.468685</td>
+      <td>0.504681</td>
+      <td>0.435350</td>
+      <td>0.451884</td>
+      <td>0.444882</td>
+      <td>0.426945</td>
+      <td>0.376233</td>
+      <td>0.351286</td>
+      <td>0.315644</td>
+      <td>0.323856</td>
+      <td>0.261971</td>
+      <td>0.221216</td>
+      <td>0.197357</td>
+      <td>0.188546</td>
+      <td>0.181892</td>
+      <td>0.186326</td>
+      <td>0.199912</td>
+      <td>0.215745</td>
+      <td>0.181837</td>
+      <td>0.154013</td>
+      <td>0.139364</td>
+      <td>0.128598</td>
+      <td>0.119614</td>
+      <td>0.106360</td>
+      <td>0.087475</td>
+      <td>0.075265</td>
+      <td>0.070213</td>
+      <td>0.065060</td>
+      <td>0.054688</td>
+      <td>0.046965</td>
+      <td>0.046228</td>
+      <td>0.047873</td>
+      <td>0.044519</td>
+      <td>0.042265</td>
+      <td>0.042652</td>
+      <td>0.039718</td>
+      <td>0.032002</td>
+      <td>0.025446</td>
+      <td>0.023741</td>
+      <td>0.019783</td>
+      <td>0.016504</td>
+      <td>0.013715</td>
+      <td>0.011194</td>
+      <td>0.008966</td>
+      <td>0.007626</td>
+      <td>0.006675</td>
+      <td>0.004998</td>
+      <td>0.004074</td>
+      <td>0.003467</td>
+      <td>0.003048</td>
+      <td>0.001789</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7</td>
+      <td>7</td>
+      <td>132</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-125.400</td>
+      <td>40.7000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Northwest Calif-02</td>
+      <td>iscgem900654</td>
+      <td>1</td>
+      <td>1941-02-09 09:45:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>Earth Model (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>6.60</td>
+      <td>U</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>87.9</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>8.910000e+25</td>
+      <td>0.00</td>
+      <td>42.90</td>
+      <td>0.00</td>
+      <td>312.90</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>7</td>
+      <td>1.95752</td>
+      <td>30.23500</td>
+      <td>24.99210</td>
+      <td>755.6370</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>96.8622</td>
+      <td>97.3770</td>
+      <td>83.38380</td>
+      <td>83.40680</td>
+      <td>16.41960</td>
+      <td>96.8301</td>
+      <td>81.7512</td>
+      <td>98.4418</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.70383</td>
+      <td>-125.23752</td>
+      <td>1.958</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>16.41960</td>
+      <td>111.9090</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>45.0</td>
+      <td>135.0</td>
+      <td>0.13</td>
+      <td>0.10</td>
+      <td>0.23</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.049416</td>
+      <td>3.55770</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.049447</td>
+      <td>0.049725</td>
+      <td>0.049782</td>
+      <td>0.049756</td>
+      <td>0.050290</td>
+      <td>0.050331</td>
+      <td>0.050513</td>
+      <td>0.050298</td>
+      <td>0.050340</td>
+      <td>0.051142</td>
+      <td>0.051876</td>
+      <td>0.052032</td>
+      <td>0.052075</td>
+      <td>0.052184</td>
+      <td>0.051720</td>
+      <td>0.050659</td>
+      <td>0.053084</td>
+      <td>0.055356</td>
+      <td>0.056272</td>
+      <td>0.056522</td>
+      <td>0.058254</td>
+      <td>0.060126</td>
+      <td>0.061350</td>
+      <td>0.066378</td>
+      <td>0.066204</td>
+      <td>0.061784</td>
+      <td>0.070286</td>
+      <td>0.083079</td>
+      <td>0.078011</td>
+      <td>0.083478</td>
+      <td>0.084700</td>
+      <td>0.091488</td>
+      <td>0.109493</td>
+      <td>0.127644</td>
+      <td>0.121633</td>
+      <td>0.107882</td>
+      <td>0.113643</td>
+      <td>0.131698</td>
+      <td>0.150517</td>
+      <td>0.162169</td>
+      <td>0.158883</td>
+      <td>0.153609</td>
+      <td>0.135999</td>
+      <td>0.153581</td>
+      <td>0.162887</td>
+      <td>0.161179</td>
+      <td>0.144583</td>
+      <td>0.131508</td>
+      <td>0.114107</td>
+      <td>0.083653</td>
+      <td>0.084193</td>
+      <td>0.090270</td>
+      <td>0.085990</td>
+      <td>0.083007</td>
+      <td>0.086186</td>
+      <td>0.096697</td>
+      <td>0.108754</td>
+      <td>0.131965</td>
+      <td>0.126286</td>
+      <td>0.085835</td>
+      <td>0.077728</td>
+      <td>0.063328</td>
+      <td>0.052471</td>
+      <td>0.052265</td>
+      <td>0.055567</td>
+      <td>0.053174</td>
+      <td>0.040213</td>
+      <td>0.032875</td>
+      <td>0.029892</td>
+      <td>0.026769</td>
+      <td>0.028072</td>
+      <td>0.026353</td>
+      <td>0.026069</td>
+      <td>0.021950</td>
+      <td>0.017873</td>
+      <td>0.016614</td>
+      <td>0.015174</td>
+      <td>0.014714</td>
+      <td>0.015656</td>
+      <td>0.011619</td>
+      <td>0.010162</td>
+      <td>0.009694</td>
+      <td>0.009959</td>
+      <td>0.011078</td>
+      <td>0.011547</td>
+      <td>0.009512</td>
+      <td>0.008473</td>
+      <td>0.007281</td>
+      <td>0.005869</td>
+      <td>0.005414</td>
+      <td>0.004898</td>
+      <td>0.004840</td>
+      <td>0.004514</td>
+      <td>0.003917</td>
+      <td>0.003530</td>
+      <td>0.002887</td>
+      <td>0.001935</td>
+      <td>0.001533</td>
+      <td>0.001383</td>
+      <td>0.001319</td>
+      <td>0.001293</td>
+      <td>0.001211</td>
+      <td>0.001087</td>
+      <td>0.000899</td>
+      <td>0.000801</td>
+      <td>0.000566</td>
+      <td>0.000423</td>
+      <td>0.000366</td>
+      <td>0.000273</td>
+      <td>0.000233</td>
+      <td>0.000175</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In our case, this DataFrame has a really large number of columns, and Pandas doesn&#39;t show them all by default.</span>
+<span class="c1"># If we want to see more columns, we can use the pd.set_option() command to increase the number of displayed columns.</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>motion_id</th>
+      <th>event_id</th>
+      <th>station_id</th>
+      <th>path_id</th>
+      <th>user_id</th>
+      <th>public_motion</th>
+      <th>hypocenter_longitude</th>
+      <th>hypocenter_latitude</th>
+      <th>event_country</th>
+      <th>event_subdivision</th>
+      <th>event_name</th>
+      <th>comcat_id</th>
+      <th>event_type_id</th>
+      <th>datetime</th>
+      <th>time_zone</th>
+      <th>hypocenter_reported_depth</th>
+      <th>hypocenter_reported_depth_datum</th>
+      <th>epicenter_elevation</th>
+      <th>hypocenter_depth</th>
+      <th>magnitude</th>
+      <th>magnitude_type</th>
+      <th>magnitude_uncertainty_Kagan_model</th>
+      <th>magnitude_uncertainty_statistical</th>
+      <th>magnitude_sample_size</th>
+      <th>magnitude_uncertainty_study_class</th>
+      <th>strike</th>
+      <th>dip</th>
+      <th>rake</th>
+      <th>mechanism_based_on_Rake</th>
+      <th>slip_rate</th>
+      <th>seismic_moment</th>
+      <th>p_plunge</th>
+      <th>p_trend</th>
+      <th>t_plunge</th>
+      <th>t_trend</th>
+      <th>coseismic_surface_rupture</th>
+      <th>basis_for_surface_rupture</th>
+      <th>extensional_regime</th>
+      <th>extensional_regime_name</th>
+      <th>event_type</th>
+      <th>finite_fault_id</th>
+      <th>ztor</th>
+      <th>fault_length</th>
+      <th>fault_width</th>
+      <th>fault_area</th>
+      <th>ffm_model</th>
+      <th>ffm_complexity</th>
+      <th>ffm_reference</th>
+      <th>finite_fault_citation_id</th>
+      <th>finite_fault_kinematic_parameter_id</th>
+      <th>average_fault_displacement</th>
+      <th>rise_time</th>
+      <th>average_slip_velocity</th>
+      <th>preferred_rupture_velocity</th>
+      <th>average_vr_vs</th>
+      <th>percent_moment_release</th>
+      <th>existence_of_shallow_asperity</th>
+      <th>depth_to_shallowest_asperity</th>
+      <th>site_id</th>
+      <th>network_id</th>
+      <th>station_name</th>
+      <th>station_latitude</th>
+      <th>station_longitude</th>
+      <th>station_elevation</th>
+      <th>station_code</th>
+      <th>housing</th>
+      <th>cosmos_station_type</th>
+      <th>sensor_depth</th>
+      <th>installation_date</th>
+      <th>removal_date</th>
+      <th>network_code</th>
+      <th>network_name</th>
+      <th>network_type</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>operation_org</th>
+      <th>doi</th>
+      <th>network_citation_id</th>
+      <th>site_longitude</th>
+      <th>site_latitude</th>
+      <th>site_elevation</th>
+      <th>site_country</th>
+      <th>site_subdivision</th>
+      <th>site_name</th>
+      <th>vs30</th>
+      <th>vs30_lnstd</th>
+      <th>vs30_code_id</th>
+      <th>vs30_ref</th>
+      <th>geological_unit</th>
+      <th>geological_ref</th>
+      <th>geological_citation_id</th>
+      <th>slope_gradient</th>
+      <th>slope_resolution</th>
+      <th>terrain_class</th>
+      <th>terrain_citation_id</th>
+      <th>z1p0_preferred</th>
+      <th>z1p0_preferred_lnstd</th>
+      <th>z1p0_code_id</th>
+      <th>z2p5_preferred</th>
+      <th>z2p5_preferred_lnstd</th>
+      <th>z2p5_code_id</th>
+      <th>basin_province</th>
+      <th>gmx_c2</th>
+      <th>gmx_c3</th>
+      <th>rsbe</th>
+      <th>rcebe</th>
+      <th>epicentral_distance</th>
+      <th>hypocentral_distance</th>
+      <th>rjb</th>
+      <th>rrup</th>
+      <th>rx</th>
+      <th>ry</th>
+      <th>ry0</th>
+      <th>ravg</th>
+      <th>rebe</th>
+      <th>rsbe1</th>
+      <th>closest_point_latitude</th>
+      <th>closest_point_longitude</th>
+      <th>closest_point_depth</th>
+      <th>hanging_wall</th>
+      <th>source_to_site_azimuth</th>
+      <th>X</th>
+      <th>theta_D</th>
+      <th>Y</th>
+      <th>phi_D</th>
+      <th>ssga_strike_slip</th>
+      <th>ssga_dip_slip</th>
+      <th>s</th>
+      <th>d</th>
+      <th>ctildepr</th>
+      <th>T</th>
+      <th>U</th>
+      <th>time_series_metadata_id</th>
+      <th>instrument_type</th>
+      <th>colocated_instrument</th>
+      <th>instrument_natural_frequency</th>
+      <th>sampling_rate</th>
+      <th>late_p_trigger</th>
+      <th>late_s_trigger</th>
+      <th>multiple_wave_train</th>
+      <th>processing_type</th>
+      <th>filter_type</th>
+      <th>order_hpass</th>
+      <th>order_lpass</th>
+      <th>azimuth_h1</th>
+      <th>azimuth_h2</th>
+      <th>hpass_fc_h1</th>
+      <th>hpass_fc_h2</th>
+      <th>hpass_fc_v</th>
+      <th>lpass_fc_h1</th>
+      <th>lpass_fc_h2</th>
+      <th>lpass_fc_v</th>
+      <th>usable_frequency_factor</th>
+      <th>public_time_series</th>
+      <th>time_series_citation_id</th>
+      <th>pga_rotd50</th>
+      <th>pgv_rotd50</th>
+      <th>cav_rotd50</th>
+      <th>cav5_rotd50</th>
+      <th>ia_rotd50</th>
+      <th>damping</th>
+      <th>psa_rotd50(0p010s)</th>
+      <th>psa_rotd50(0p020s)</th>
+      <th>psa_rotd50(0p022s)</th>
+      <th>psa_rotd50(0p025s)</th>
+      <th>psa_rotd50(0p029s)</th>
+      <th>psa_rotd50(0p030s)</th>
+      <th>psa_rotd50(0p032s)</th>
+      <th>psa_rotd50(0p035s)</th>
+      <th>psa_rotd50(0p036s)</th>
+      <th>psa_rotd50(0p040s)</th>
+      <th>psa_rotd50(0p042s)</th>
+      <th>psa_rotd50(0p044s)</th>
+      <th>psa_rotd50(0p045s)</th>
+      <th>psa_rotd50(0p046s)</th>
+      <th>psa_rotd50(0p048s)</th>
+      <th>psa_rotd50(0p050s)</th>
+      <th>psa_rotd50(0p055s)</th>
+      <th>psa_rotd50(0p060s)</th>
+      <th>psa_rotd50(0p065s)</th>
+      <th>psa_rotd50(0p067s)</th>
+      <th>psa_rotd50(0p070s)</th>
+      <th>psa_rotd50(0p075s)</th>
+      <th>psa_rotd50(0p080s)</th>
+      <th>psa_rotd50(0p085s)</th>
+      <th>psa_rotd50(0p090s)</th>
+      <th>psa_rotd50(0p095s)</th>
+      <th>psa_rotd50(0p100s)</th>
+      <th>psa_rotd50(0p110s)</th>
+      <th>psa_rotd50(0p120s)</th>
+      <th>psa_rotd50(0p130s)</th>
+      <th>psa_rotd50(0p133s)</th>
+      <th>psa_rotd50(0p140s)</th>
+      <th>psa_rotd50(0p150s)</th>
+      <th>psa_rotd50(0p160s)</th>
+      <th>psa_rotd50(0p170s)</th>
+      <th>psa_rotd50(0p180s)</th>
+      <th>psa_rotd50(0p190s)</th>
+      <th>psa_rotd50(0p200s)</th>
+      <th>psa_rotd50(0p220s)</th>
+      <th>psa_rotd50(0p240s)</th>
+      <th>psa_rotd50(0p250s)</th>
+      <th>psa_rotd50(0p260s)</th>
+      <th>psa_rotd50(0p280s)</th>
+      <th>psa_rotd50(0p290s)</th>
+      <th>psa_rotd50(0p300s)</th>
+      <th>psa_rotd50(0p320s)</th>
+      <th>psa_rotd50(0p340s)</th>
+      <th>psa_rotd50(0p350s)</th>
+      <th>psa_rotd50(0p360s)</th>
+      <th>psa_rotd50(0p380s)</th>
+      <th>psa_rotd50(0p400s)</th>
+      <th>psa_rotd50(0p420s)</th>
+      <th>psa_rotd50(0p440s)</th>
+      <th>psa_rotd50(0p450s)</th>
+      <th>psa_rotd50(0p460s)</th>
+      <th>psa_rotd50(0p480s)</th>
+      <th>psa_rotd50(0p500s)</th>
+      <th>psa_rotd50(0p550s)</th>
+      <th>psa_rotd50(0p600s)</th>
+      <th>psa_rotd50(0p650s)</th>
+      <th>psa_rotd50(0p667s)</th>
+      <th>psa_rotd50(0p700s)</th>
+      <th>psa_rotd50(0p750s)</th>
+      <th>psa_rotd50(0p800s)</th>
+      <th>psa_rotd50(0p850s)</th>
+      <th>psa_rotd50(0p900s)</th>
+      <th>psa_rotd50(0p950s)</th>
+      <th>psa_rotd50(1p000s)</th>
+      <th>psa_rotd50(1p100s)</th>
+      <th>psa_rotd50(1p200s)</th>
+      <th>psa_rotd50(1p300s)</th>
+      <th>psa_rotd50(1p400s)</th>
+      <th>psa_rotd50(1p500s)</th>
+      <th>psa_rotd50(1p600s)</th>
+      <th>psa_rotd50(1p700s)</th>
+      <th>psa_rotd50(1p800s)</th>
+      <th>psa_rotd50(1p900s)</th>
+      <th>psa_rotd50(2p000s)</th>
+      <th>psa_rotd50(2p200s)</th>
+      <th>psa_rotd50(2p400s)</th>
+      <th>psa_rotd50(2p500s)</th>
+      <th>psa_rotd50(2p600s)</th>
+      <th>psa_rotd50(2p800s)</th>
+      <th>psa_rotd50(3p000s)</th>
+      <th>psa_rotd50(3p200s)</th>
+      <th>psa_rotd50(3p400s)</th>
+      <th>psa_rotd50(3p500s)</th>
+      <th>psa_rotd50(3p600s)</th>
+      <th>psa_rotd50(3p800s)</th>
+      <th>psa_rotd50(4p000s)</th>
+      <th>psa_rotd50(4p200s)</th>
+      <th>psa_rotd50(4p400s)</th>
+      <th>psa_rotd50(4p600s)</th>
+      <th>psa_rotd50(4p800s)</th>
+      <th>psa_rotd50(5p000s)</th>
+      <th>psa_rotd50(5p500s)</th>
+      <th>psa_rotd50(6p000s)</th>
+      <th>psa_rotd50(6p500s)</th>
+      <th>psa_rotd50(7p000s)</th>
+      <th>psa_rotd50(7p500s)</th>
+      <th>psa_rotd50(8p000s)</th>
+      <th>psa_rotd50(8p500s)</th>
+      <th>psa_rotd50(9p000s)</th>
+      <th>psa_rotd50(9p500s)</th>
+      <th>psa_rotd50(10p000s)</th>
+      <th>psa_rotd50(11p000s)</th>
+      <th>psa_rotd50(12p000s)</th>
+      <th>psa_rotd50(13p000s)</th>
+      <th>psa_rotd50(14p000s)</th>
+      <th>psa_rotd50(15p000s)</th>
+      <th>psa_rotd50(20p000s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>3</td>
+      <td>132</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-125.100</td>
+      <td>40.4000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Humbolt Bay</td>
+      <td>iscgem902937</td>
+      <td>1</td>
+      <td>1937-02-07 04:42:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>NOAA96 (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>5.80</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>196.2</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>5.620000e+24</td>
+      <td>0.00</td>
+      <td>151.20</td>
+      <td>0.00</td>
+      <td>61.20</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>3</td>
+      <td>5.77794</td>
+      <td>9.54857</td>
+      <td>7.08636</td>
+      <td>67.6646</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>73.3889</td>
+      <td>74.0671</td>
+      <td>70.86000</td>
+      <td>71.09520</td>
+      <td>-62.30790</td>
+      <td>-38.5265</td>
+      <td>33.7471</td>
+      <td>73.8696</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.44334</td>
+      <td>-125.08345</td>
+      <td>5.778</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-62.30790</td>
+      <td>-33.7471</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>225.0</td>
+      <td>315.0</td>
+      <td>0.20</td>
+      <td>0.30</td>
+      <td>0.50</td>
+      <td>11.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.040961</td>
+      <td>2.79070</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.040997</td>
+      <td>0.041184</td>
+      <td>0.041234</td>
+      <td>0.041309</td>
+      <td>0.041490</td>
+      <td>0.041511</td>
+      <td>0.041590</td>
+      <td>0.041759</td>
+      <td>0.041802</td>
+      <td>0.041704</td>
+      <td>0.041852</td>
+      <td>0.042186</td>
+      <td>0.042261</td>
+      <td>0.042364</td>
+      <td>0.042751</td>
+      <td>0.043054</td>
+      <td>0.042583</td>
+      <td>0.042825</td>
+      <td>0.043674</td>
+      <td>0.043823</td>
+      <td>0.044051</td>
+      <td>0.044966</td>
+      <td>0.046361</td>
+      <td>0.049794</td>
+      <td>0.052278</td>
+      <td>0.053464</td>
+      <td>0.055675</td>
+      <td>0.053223</td>
+      <td>0.065446</td>
+      <td>0.085192</td>
+      <td>0.086976</td>
+      <td>0.088631</td>
+      <td>0.090010</td>
+      <td>0.092072</td>
+      <td>0.096094</td>
+      <td>0.101286</td>
+      <td>0.102528</td>
+      <td>0.102349</td>
+      <td>0.112755</td>
+      <td>0.098703</td>
+      <td>0.093900</td>
+      <td>0.092540</td>
+      <td>0.098893</td>
+      <td>0.104211</td>
+      <td>0.111019</td>
+      <td>0.116172</td>
+      <td>0.126128</td>
+      <td>0.121098</td>
+      <td>0.115378</td>
+      <td>0.098382</td>
+      <td>0.095192</td>
+      <td>0.089718</td>
+      <td>0.079701</td>
+      <td>0.077055</td>
+      <td>0.075329</td>
+      <td>0.080853</td>
+      <td>0.082295</td>
+      <td>0.081349</td>
+      <td>0.077760</td>
+      <td>0.075255</td>
+      <td>0.070986</td>
+      <td>0.063358</td>
+      <td>0.056946</td>
+      <td>0.047057</td>
+      <td>0.039890</td>
+      <td>0.035645</td>
+      <td>0.036656</td>
+      <td>0.035785</td>
+      <td>0.030533</td>
+      <td>0.028635</td>
+      <td>0.025149</td>
+      <td>0.021392</td>
+      <td>0.016157</td>
+      <td>0.013365</td>
+      <td>0.012527</td>
+      <td>0.011063</td>
+      <td>0.010959</td>
+      <td>0.009347</td>
+      <td>0.007861</td>
+      <td>0.006711</td>
+      <td>0.006156</td>
+      <td>0.005439</td>
+      <td>0.004035</td>
+      <td>0.002960</td>
+      <td>0.002964</td>
+      <td>0.002939</td>
+      <td>0.002803</td>
+      <td>0.002568</td>
+      <td>0.002124</td>
+      <td>0.001722</td>
+      <td>0.001537</td>
+      <td>0.001590</td>
+      <td>0.001425</td>
+      <td>0.001257</td>
+      <td>0.000990</td>
+      <td>0.000766</td>
+      <td>0.000527</td>
+      <td>0.000497</td>
+      <td>0.000403</td>
+      <td>0.000335</td>
+      <td>0.000288</td>
+      <td>0.000255</td>
+      <td>0.000226</td>
+      <td>0.000201</td>
+      <td>0.000180</td>
+      <td>0.000147</td>
+      <td>0.000122</td>
+      <td>0.000103</td>
+      <td>0.000088</td>
+      <td>0.000077</td>
+      <td>0.000044</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>4</td>
+      <td>74</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-115.217</td>
+      <td>32.9000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Imperial Valley-01</td>
+      <td>ci3364641</td>
+      <td>1</td>
+      <td>1938-06-06 02:42:00</td>
+      <td>UTC</td>
+      <td>16.0</td>
+      <td>Doser and Kanamori (1986) (ground surface)</td>
+      <td>0.022</td>
+      <td>16.0</td>
+      <td>5.00</td>
+      <td>U</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>205.5</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>3.550000e+23</td>
+      <td>0.00</td>
+      <td>160.50</td>
+      <td>0.00</td>
+      <td>70.50</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>1.0</td>
+      <td>Gulf Rifted Margin (SCEC)</td>
+      <td>Shallow Crustal</td>
+      <td>4</td>
+      <td>13.82500</td>
+      <td>3.57949</td>
+      <td>3.53467</td>
+      <td>12.6523</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>74</td>
+      <td>6</td>
+      <td>El Centro Array #9</td>
+      <td>32.79400</td>
+      <td>-115.54900</td>
+      <td>-15.0</td>
+      <td>117</td>
+      <td>E</td>
+      <td>26.0</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>CE</td>
+      <td>California Strong Motion Instrumentation Program</td>
+      <td>permanent</td>
+      <td>1900-01-01</td>
+      <td>9999-01-01</td>
+      <td>California Division of Mines and Geology (CDMG)</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>-115.54900</td>
+      <td>32.79400</td>
+      <td>-15.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>El Centro Array #9</td>
+      <td>213.44</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 75</td>
+      <td>Qal1</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.001880</td>
+      <td>30 arc-sec</td>
+      <td>16.0</td>
+      <td>1478</td>
+      <td>903.5000</td>
+      <td>-999.000000</td>
+      <td>4.0</td>
+      <td>3015.500</td>
+      <td>-999.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>33.1789</td>
+      <td>36.8353</td>
+      <td>31.90920</td>
+      <td>34.77540</td>
+      <td>23.01880</td>
+      <td>23.8908</td>
+      <td>22.0982</td>
+      <td>36.6510</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>32.88535</td>
+      <td>-115.22522</td>
+      <td>13.825</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>23.01880</td>
+      <td>25.6833</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.70</td>
+      <td>0.50</td>
+      <td>0.80</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>22.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.018449</td>
+      <td>0.64551</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.018463</td>
+      <td>0.018787</td>
+      <td>0.018756</td>
+      <td>0.019011</td>
+      <td>0.019573</td>
+      <td>0.019634</td>
+      <td>0.019446</td>
+      <td>0.019363</td>
+      <td>0.019827</td>
+      <td>0.022238</td>
+      <td>0.022127</td>
+      <td>0.022418</td>
+      <td>0.022243</td>
+      <td>0.022458</td>
+      <td>0.024063</td>
+      <td>0.024304</td>
+      <td>0.025020</td>
+      <td>0.026804</td>
+      <td>0.029008</td>
+      <td>0.029413</td>
+      <td>0.030663</td>
+      <td>0.031392</td>
+      <td>0.038367</td>
+      <td>0.044387</td>
+      <td>0.046177</td>
+      <td>0.044336</td>
+      <td>0.039888</td>
+      <td>0.041810</td>
+      <td>0.042431</td>
+      <td>0.043055</td>
+      <td>0.046374</td>
+      <td>0.049669</td>
+      <td>0.051333</td>
+      <td>0.046646</td>
+      <td>0.041096</td>
+      <td>0.040487</td>
+      <td>0.043451</td>
+      <td>0.041947</td>
+      <td>0.041519</td>
+      <td>0.046460</td>
+      <td>0.046283</td>
+      <td>0.045511</td>
+      <td>0.037262</td>
+      <td>0.032165</td>
+      <td>0.027698</td>
+      <td>0.025279</td>
+      <td>0.025275</td>
+      <td>0.027570</td>
+      <td>0.027242</td>
+      <td>0.026292</td>
+      <td>0.029476</td>
+      <td>0.030415</td>
+      <td>0.029320</td>
+      <td>0.028731</td>
+      <td>0.027912</td>
+      <td>0.024318</td>
+      <td>0.021552</td>
+      <td>0.018637</td>
+      <td>0.013593</td>
+      <td>0.012919</td>
+      <td>0.011534</td>
+      <td>0.011099</td>
+      <td>0.009689</td>
+      <td>0.009862</td>
+      <td>0.008247</td>
+      <td>0.007341</td>
+      <td>0.006403</td>
+      <td>0.006027</td>
+      <td>0.004665</td>
+      <td>0.004305</td>
+      <td>0.003677</td>
+      <td>0.002871</td>
+      <td>0.002115</td>
+      <td>0.001554</td>
+      <td>0.001344</td>
+      <td>0.001215</td>
+      <td>0.001128</td>
+      <td>0.000959</td>
+      <td>0.001029</td>
+      <td>0.000918</td>
+      <td>0.000724</td>
+      <td>0.000625</td>
+      <td>0.000511</td>
+      <td>0.000382</td>
+      <td>0.000316</td>
+      <td>0.000256</td>
+      <td>0.000233</td>
+      <td>0.000214</td>
+      <td>0.000186</td>
+      <td>0.000165</td>
+      <td>0.000149</td>
+      <td>0.000137</td>
+      <td>0.000127</td>
+      <td>0.000117</td>
+      <td>0.000108</td>
+      <td>0.000087</td>
+      <td>0.000071</td>
+      <td>0.000058</td>
+      <td>0.000048</td>
+      <td>0.000040</td>
+      <td>0.000035</td>
+      <td>0.000031</td>
+      <td>0.000027</td>
+      <td>0.000024</td>
+      <td>0.000022</td>
+      <td>0.000018</td>
+      <td>0.000016</td>
+      <td>0.000013</td>
+      <td>0.000012</td>
+      <td>0.000010</td>
+      <td>0.000006</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>5</td>
+      <td>132</td>
+      <td>3</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-124.800</td>
+      <td>40.3000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Northwest Calif-01</td>
+      <td>iscgem902671</td>
+      <td>1</td>
+      <td>1938-09-12 06:10:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>Earth Model (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>5.50</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>35.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>2.000000e+24</td>
+      <td>0.00</td>
+      <td>350.00</td>
+      <td>0.00</td>
+      <td>260.00</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>5</td>
+      <td>6.68056</td>
+      <td>6.57572</td>
+      <td>4.42978</td>
+      <td>29.1290</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>54.8024</td>
+      <td>55.7073</td>
+      <td>51.78400</td>
+      <td>52.21320</td>
+      <td>19.49760</td>
+      <td>51.2610</td>
+      <td>47.9732</td>
+      <td>55.4959</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.32396</td>
+      <td>-124.77815</td>
+      <td>6.681</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>19.49760</td>
+      <td>54.5489</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>45.0</td>
+      <td>135.0</td>
+      <td>0.50</td>
+      <td>0.13</td>
+      <td>0.20</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.122180</td>
+      <td>6.56390</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.122486</td>
+      <td>0.124145</td>
+      <td>0.123066</td>
+      <td>0.123004</td>
+      <td>0.124997</td>
+      <td>0.125417</td>
+      <td>0.125574</td>
+      <td>0.125862</td>
+      <td>0.126668</td>
+      <td>0.132375</td>
+      <td>0.132790</td>
+      <td>0.132232</td>
+      <td>0.132773</td>
+      <td>0.133183</td>
+      <td>0.131357</td>
+      <td>0.127033</td>
+      <td>0.136803</td>
+      <td>0.143229</td>
+      <td>0.139192</td>
+      <td>0.134213</td>
+      <td>0.137720</td>
+      <td>0.151516</td>
+      <td>0.156608</td>
+      <td>0.152146</td>
+      <td>0.142823</td>
+      <td>0.145294</td>
+      <td>0.156934</td>
+      <td>0.175118</td>
+      <td>0.185073</td>
+      <td>0.205191</td>
+      <td>0.216298</td>
+      <td>0.241475</td>
+      <td>0.246802</td>
+      <td>0.291962</td>
+      <td>0.300765</td>
+      <td>0.323005</td>
+      <td>0.339681</td>
+      <td>0.324218</td>
+      <td>0.261282</td>
+      <td>0.250309</td>
+      <td>0.232767</td>
+      <td>0.246893</td>
+      <td>0.279668</td>
+      <td>0.264801</td>
+      <td>0.271066</td>
+      <td>0.259114</td>
+      <td>0.212736</td>
+      <td>0.204587</td>
+      <td>0.200849</td>
+      <td>0.194018</td>
+      <td>0.211587</td>
+      <td>0.242223</td>
+      <td>0.258561</td>
+      <td>0.258287</td>
+      <td>0.257365</td>
+      <td>0.246154</td>
+      <td>0.223093</td>
+      <td>0.155655</td>
+      <td>0.115007</td>
+      <td>0.107760</td>
+      <td>0.104971</td>
+      <td>0.102093</td>
+      <td>0.091499</td>
+      <td>0.090291</td>
+      <td>0.092053</td>
+      <td>0.085738</td>
+      <td>0.093186</td>
+      <td>0.093659</td>
+      <td>0.051430</td>
+      <td>0.041416</td>
+      <td>0.042914</td>
+      <td>0.036200</td>
+      <td>0.026785</td>
+      <td>0.021614</td>
+      <td>0.019643</td>
+      <td>0.016383</td>
+      <td>0.013886</td>
+      <td>0.013654</td>
+      <td>0.010225</td>
+      <td>0.007973</td>
+      <td>0.007163</td>
+      <td>0.006204</td>
+      <td>0.005247</td>
+      <td>0.004022</td>
+      <td>0.003611</td>
+      <td>0.003199</td>
+      <td>0.003029</td>
+      <td>0.002844</td>
+      <td>0.002599</td>
+      <td>0.002372</td>
+      <td>0.002139</td>
+      <td>0.001883</td>
+      <td>0.001667</td>
+      <td>0.001525</td>
+      <td>0.001398</td>
+      <td>0.001134</td>
+      <td>0.000960</td>
+      <td>0.000815</td>
+      <td>0.000675</td>
+      <td>0.000559</td>
+      <td>0.000472</td>
+      <td>0.000401</td>
+      <td>0.000348</td>
+      <td>0.000309</td>
+      <td>0.000276</td>
+      <td>0.000228</td>
+      <td>0.000193</td>
+      <td>0.000166</td>
+      <td>0.000144</td>
+      <td>0.000126</td>
+      <td>0.000072</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>6</td>
+      <td>74</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-115.416</td>
+      <td>32.7601</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Imperial Valley-02</td>
+      <td>ci3365279</td>
+      <td>1</td>
+      <td>1940-05-19 04:37:00</td>
+      <td>UTC</td>
+      <td>8.8</td>
+      <td>Earth Model (ground surface)</td>
+      <td>-0.002</td>
+      <td>8.8</td>
+      <td>6.95</td>
+      <td>Mw</td>
+      <td>0.3</td>
+      <td>0.072</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>323.0</td>
+      <td>80.0</td>
+      <td>180.0</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>2.990000e+26</td>
+      <td>7.05</td>
+      <td>187.56</td>
+      <td>7.05</td>
+      <td>278.44</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Gulf Rifted Margin (SCEC)</td>
+      <td>Shallow Crustal</td>
+      <td>6</td>
+      <td>0.00000</td>
+      <td>63.00000</td>
+      <td>13.00000</td>
+      <td>818.8000</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>101.845</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>74</td>
+      <td>6</td>
+      <td>El Centro Array #9</td>
+      <td>32.79400</td>
+      <td>-115.54900</td>
+      <td>-15.0</td>
+      <td>117</td>
+      <td>E</td>
+      <td>26.0</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>CE</td>
+      <td>California Strong Motion Instrumentation Program</td>
+      <td>permanent</td>
+      <td>1900-01-01</td>
+      <td>9999-01-01</td>
+      <td>California Division of Mines and Geology (CDMG)</td>
+      <td>-999</td>
+      <td>1</td>
+      <td>-115.54900</td>
+      <td>32.79400</td>
+      <td>-15.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>El Centro Array #9</td>
+      <td>213.44</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 75</td>
+      <td>Qal1</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.001880</td>
+      <td>30 arc-sec</td>
+      <td>16.0</td>
+      <td>1478</td>
+      <td>903.5000</td>
+      <td>-999.000000</td>
+      <td>4.0</td>
+      <td>3015.500</td>
+      <td>-999.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>12.9928</td>
+      <td>15.6925</td>
+      <td>6.08706</td>
+      <td>6.08706</td>
+      <td>-6.08708</td>
+      <td>19.3988</td>
+      <td>0.0000</td>
+      <td>15.7876</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>32.82699</td>
+      <td>-115.49704</td>
+      <td>0.000</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-6.08708</td>
+      <td>50.9282</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>100.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>180.0</td>
+      <td>270.0</td>
+      <td>0.20</td>
+      <td>0.13</td>
+      <td>0.20</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.233490</td>
+      <td>31.29900</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.234619</td>
+      <td>0.233565</td>
+      <td>0.233734</td>
+      <td>0.233992</td>
+      <td>0.234367</td>
+      <td>0.234452</td>
+      <td>0.234606</td>
+      <td>0.234815</td>
+      <td>0.234921</td>
+      <td>0.235976</td>
+      <td>0.236058</td>
+      <td>0.236411</td>
+      <td>0.236837</td>
+      <td>0.237392</td>
+      <td>0.238353</td>
+      <td>0.239346</td>
+      <td>0.240659</td>
+      <td>0.242577</td>
+      <td>0.244875</td>
+      <td>0.248429</td>
+      <td>0.251819</td>
+      <td>0.273381</td>
+      <td>0.314595</td>
+      <td>0.326510</td>
+      <td>0.342594</td>
+      <td>0.394221</td>
+      <td>0.426959</td>
+      <td>0.432456</td>
+      <td>0.496467</td>
+      <td>0.582133</td>
+      <td>0.590928</td>
+      <td>0.538106</td>
+      <td>0.552265</td>
+      <td>0.521962</td>
+      <td>0.587592</td>
+      <td>0.588928</td>
+      <td>0.577732</td>
+      <td>0.577730</td>
+      <td>0.655618</td>
+      <td>0.609126</td>
+      <td>0.611714</td>
+      <td>0.599689</td>
+      <td>0.558982</td>
+      <td>0.541735</td>
+      <td>0.526303</td>
+      <td>0.600615</td>
+      <td>0.582754</td>
+      <td>0.561163</td>
+      <td>0.552079</td>
+      <td>0.580982</td>
+      <td>0.556247</td>
+      <td>0.530241</td>
+      <td>0.607599</td>
+      <td>0.659465</td>
+      <td>0.676709</td>
+      <td>0.641114</td>
+      <td>0.629952</td>
+      <td>0.618842</td>
+      <td>0.559427</td>
+      <td>0.468516</td>
+      <td>0.468685</td>
+      <td>0.504681</td>
+      <td>0.435350</td>
+      <td>0.451884</td>
+      <td>0.444882</td>
+      <td>0.426945</td>
+      <td>0.376233</td>
+      <td>0.351286</td>
+      <td>0.315644</td>
+      <td>0.323856</td>
+      <td>0.261971</td>
+      <td>0.221216</td>
+      <td>0.197357</td>
+      <td>0.188546</td>
+      <td>0.181892</td>
+      <td>0.186326</td>
+      <td>0.199912</td>
+      <td>0.215745</td>
+      <td>0.181837</td>
+      <td>0.154013</td>
+      <td>0.139364</td>
+      <td>0.128598</td>
+      <td>0.119614</td>
+      <td>0.106360</td>
+      <td>0.087475</td>
+      <td>0.075265</td>
+      <td>0.070213</td>
+      <td>0.065060</td>
+      <td>0.054688</td>
+      <td>0.046965</td>
+      <td>0.046228</td>
+      <td>0.047873</td>
+      <td>0.044519</td>
+      <td>0.042265</td>
+      <td>0.042652</td>
+      <td>0.039718</td>
+      <td>0.032002</td>
+      <td>0.025446</td>
+      <td>0.023741</td>
+      <td>0.019783</td>
+      <td>0.016504</td>
+      <td>0.013715</td>
+      <td>0.011194</td>
+      <td>0.008966</td>
+      <td>0.007626</td>
+      <td>0.006675</td>
+      <td>0.004998</td>
+      <td>0.004074</td>
+      <td>0.003467</td>
+      <td>0.003048</td>
+      <td>0.001789</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7</td>
+      <td>7</td>
+      <td>132</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>-125.400</td>
+      <td>40.7000</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Northwest Calif-02</td>
+      <td>iscgem900654</td>
+      <td>1</td>
+      <td>1941-02-09 09:45:00</td>
+      <td>UTC</td>
+      <td>10.0</td>
+      <td>Earth Model (ground surface)</td>
+      <td>0.000</td>
+      <td>10.0</td>
+      <td>6.60</td>
+      <td>U</td>
+      <td>0.3</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>3.0</td>
+      <td>87.9</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>8.910000e+25</td>
+      <td>0.00</td>
+      <td>42.90</td>
+      <td>0.00</td>
+      <td>312.90</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.0</td>
+      <td>-999</td>
+      <td>Shallow Crustal</td>
+      <td>7</td>
+      <td>1.95752</td>
+      <td>30.23500</td>
+      <td>24.99210</td>
+      <td>755.6370</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>-999</td>
+      <td>1674</td>
+      <td>-999.0</td>
+      <td>-999.000</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>132</td>
+      <td>14</td>
+      <td>Ferndale City Hall</td>
+      <td>40.57616</td>
+      <td>-124.26367</td>
+      <td>16.0</td>
+      <td>1023</td>
+      <td>B</td>
+      <td>4.0</td>
+      <td>-999.0</td>
+      <td>1999-12-17</td>
+      <td>3000-01-01</td>
+      <td>NP</td>
+      <td>United States National Strong-Motion Network (...</td>
+      <td>permanent</td>
+      <td>1931-01-01</td>
+      <td>9999-01-01</td>
+      <td>U.S. Geological Survey</td>
+      <td>https://doi.org/10.7914/SN/NP</td>
+      <td>1070</td>
+      <td>-124.26367</td>
+      <td>40.57616</td>
+      <td>49.0</td>
+      <td>United States of America</td>
+      <td>California</td>
+      <td>Ferndale City Hall</td>
+      <td>219.31</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>NGAW2 - 133</td>
+      <td>Qal2</td>
+      <td>Wills, CJ, CI Gutierrez, FG Perez, and DM Bran...</td>
+      <td>2</td>
+      <td>0.021031</td>
+      <td>30 arc-sec</td>
+      <td>4.0</td>
+      <td>1478</td>
+      <td>64.4845</td>
+      <td>0.911964</td>
+      <td>3.0</td>
+      <td>871.817</td>
+      <td>-999.0</td>
+      <td>5.0</td>
+      <td>-999.0</td>
+      <td>Q</td>
+      <td>D</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>96.8622</td>
+      <td>97.3770</td>
+      <td>83.38380</td>
+      <td>83.40680</td>
+      <td>16.41960</td>
+      <td>96.8301</td>
+      <td>81.7512</td>
+      <td>98.4418</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>40.70383</td>
+      <td>-125.23752</td>
+      <td>1.958</td>
+      <td>n</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>16.41960</td>
+      <td>111.9090</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>200.0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>45.0</td>
+      <td>135.0</td>
+      <td>0.13</td>
+      <td>0.10</td>
+      <td>0.23</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>1.25</td>
+      <td>0</td>
+      <td>1034</td>
+      <td>0.049416</td>
+      <td>3.55770</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>-999.0</td>
+      <td>0.05</td>
+      <td>0.049447</td>
+      <td>0.049725</td>
+      <td>0.049782</td>
+      <td>0.049756</td>
+      <td>0.050290</td>
+      <td>0.050331</td>
+      <td>0.050513</td>
+      <td>0.050298</td>
+      <td>0.050340</td>
+      <td>0.051142</td>
+      <td>0.051876</td>
+      <td>0.052032</td>
+      <td>0.052075</td>
+      <td>0.052184</td>
+      <td>0.051720</td>
+      <td>0.050659</td>
+      <td>0.053084</td>
+      <td>0.055356</td>
+      <td>0.056272</td>
+      <td>0.056522</td>
+      <td>0.058254</td>
+      <td>0.060126</td>
+      <td>0.061350</td>
+      <td>0.066378</td>
+      <td>0.066204</td>
+      <td>0.061784</td>
+      <td>0.070286</td>
+      <td>0.083079</td>
+      <td>0.078011</td>
+      <td>0.083478</td>
+      <td>0.084700</td>
+      <td>0.091488</td>
+      <td>0.109493</td>
+      <td>0.127644</td>
+      <td>0.121633</td>
+      <td>0.107882</td>
+      <td>0.113643</td>
+      <td>0.131698</td>
+      <td>0.150517</td>
+      <td>0.162169</td>
+      <td>0.158883</td>
+      <td>0.153609</td>
+      <td>0.135999</td>
+      <td>0.153581</td>
+      <td>0.162887</td>
+      <td>0.161179</td>
+      <td>0.144583</td>
+      <td>0.131508</td>
+      <td>0.114107</td>
+      <td>0.083653</td>
+      <td>0.084193</td>
+      <td>0.090270</td>
+      <td>0.085990</td>
+      <td>0.083007</td>
+      <td>0.086186</td>
+      <td>0.096697</td>
+      <td>0.108754</td>
+      <td>0.131965</td>
+      <td>0.126286</td>
+      <td>0.085835</td>
+      <td>0.077728</td>
+      <td>0.063328</td>
+      <td>0.052471</td>
+      <td>0.052265</td>
+      <td>0.055567</td>
+      <td>0.053174</td>
+      <td>0.040213</td>
+      <td>0.032875</td>
+      <td>0.029892</td>
+      <td>0.026769</td>
+      <td>0.028072</td>
+      <td>0.026353</td>
+      <td>0.026069</td>
+      <td>0.021950</td>
+      <td>0.017873</td>
+      <td>0.016614</td>
+      <td>0.015174</td>
+      <td>0.014714</td>
+      <td>0.015656</td>
+      <td>0.011619</td>
+      <td>0.010162</td>
+      <td>0.009694</td>
+      <td>0.009959</td>
+      <td>0.011078</td>
+      <td>0.011547</td>
+      <td>0.009512</td>
+      <td>0.008473</td>
+      <td>0.007281</td>
+      <td>0.005869</td>
+      <td>0.005414</td>
+      <td>0.004898</td>
+      <td>0.004840</td>
+      <td>0.004514</td>
+      <td>0.003917</td>
+      <td>0.003530</td>
+      <td>0.002887</td>
+      <td>0.001935</td>
+      <td>0.001533</td>
+      <td>0.001383</td>
+      <td>0.001319</td>
+      <td>0.001293</td>
+      <td>0.001211</td>
+      <td>0.001087</td>
+      <td>0.000899</td>
+      <td>0.000801</td>
+      <td>0.000566</td>
+      <td>0.000423</td>
+      <td>0.000366</td>
+      <td>0.000273</td>
+      <td>0.000233</td>
+      <td>0.000175</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="clean-the-data">
+<h2>2.2 Clean the data<a class="headerlink" href="#clean-the-data" title="Link to this heading">#</a></h2>
+<p>Datasets often need to be cleaned up before we can use them. In this case, we want to use the following data columns:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code> = the RotD50 component of peak ground acceleration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">magnitude</span></code> = earthquake magnitude</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rjb</span></code> = Joyner-Boore distance between a site and the surface projection of the fault rupture</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vs30</span></code> = Time-averaged shear wave velocity in the upper 30 m of a site</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">event_subdivision</span></code> = general location where the event occurred</p></li>
+</ol>
+<p>We need to make sure that all of the pga_rotd50 values are larger than zero. In some cases, there is so much noise in a ground motion record that we can’t accurately measure peak acceleration, though we can measure other intensity measures like peak ground velocity, duration, spectral acceleration at various periods, etc. When <code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code> cannot be accurately measured, it is either left blank, in which case it will be represented as NaN in the dataframe, or it will be assigned a value of -999. Similarly, we need to make sure that <code class="docutils literal notranslate"><span class="pre">rjb</span></code> is greater than or equal to zero. Furthermore, we’re not interested in modeling very small magnitude events, so we’ll only look at magnitudes larger than 4. And finally, we will take out only the events that occur in California since earthquake ground motions often exhibit regional features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">pga_rotd50</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">rjb</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">event_subdivision</span> <span class="o">==</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-pandas-data-columns-to-numpy-arrays">
+<h2>3. Convert Pandas data columns to Numpy arrays<a class="headerlink" href="#convert-pandas-data-columns-to-numpy-arrays" title="Link to this heading">#</a></h2>
+<p>Pandas is great for opening data files and cleaning datasets, but it’s not quite as great for working with numerical data, performing complex operations on data, working with matrices, etc. For example, the Panda’s iloc feature is incredibly slow when used within Python loops or for repetitive operations on large datasets. That’s where Numpy comes in.</p>
+<p><a class="reference external" href="https://numpy.org/">Numpy</a> is an open source Python package that enables efficient numerical computing. Python is inherently slow because it’s an interpreted language, and the interpreter does a lot of work at runtime, particularly if you use loops. Python is very convenient because you don’t need to declare variable types, allocate memory, and all of those other tasks required in a compiled language like C, C++, or Fortran. That’s because the interpreter does that work for you when you run the code. But that convenience comes at the expense of computational efficiency. A previous <a class="reference external" href="https://designsafe-ci.github.io/training-accelerating-python/">DesignSafe training session</a> covered this in detail. Although Numpy is a Python package, it is not written in Python. It is primarily written in C, and consists of well-optimized and efficient compiled code. If you ever have to decide between writing your own code using Python loops, or using a Numpy function that does the same thing, the Numpy option will be significantly faster. In general you should always look for a Numpy option before writing your own code.</p>
+<p>To convert a Pandas data column to a Numpy array, you can simply use the .values operator. Those conversions are performed in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pga_rotd50</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pga_rotd50</span><span class="o">.</span><span class="n">values</span>
+<span class="n">rjb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rjb</span><span class="o">.</span><span class="n">values</span>
+<span class="n">magnitude</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">magnitude</span><span class="o">.</span><span class="n">values</span>
+<span class="n">vs30</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">vs30</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-matplotlib-to-plot-selected-data-quantities">
+<h2>4. Use Matplotlib to plot selected data quantities<a class="headerlink" href="#use-matplotlib-to-plot-selected-data-quantities" title="Link to this heading">#</a></h2>
+<p>We’ll make two data plots to illustrate key features of Matplotlib. First, we’ll plot <code class="docutils literal notranslate"><span class="pre">magnitude</span></code> vs. <code class="docutils literal notranslate"><span class="pre">rjb</span></code> to illustrate the coverage of ground motion data in this space. Second, we’ll plot <code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code> vs. <code class="docutils literal notranslate"><span class="pre">rjb</span></code> using different color symbols for different magnitude bins.</p>
+<section id="plot-of-magnitude-vs-distance">
+<h3>4.1 Plot of magnitude vs. distance<a class="headerlink" href="#plot-of-magnitude-vs-distance" title="Link to this heading">#</a></h3>
+<p>A figure that we often use to represent data coverage in a ground motion dataset is magnitude vs. distance. Each earthquake is generally recorded by many different sensors, so the plot ends up having horizontal stripes. We’ll use the <a class="reference external" href="https://matplotlib.org">matplotlib</a> Python package to plot <code class="docutils literal notranslate"><span class="pre">magnitude</span></code> vs. <code class="docutils literal notranslate"><span class="pre">rjb</span></code>. Specifically, we’ll first use the Matplotlib <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html">subplots</a> wrapper to great a figure and axis object. We’ll then make a scatter plot with small symbols representing each ground motion. We’ll fill the symbols with a white color, and use the Matplotlib default colormap (viridis) to color the edge of the markers as the default first color ‘C0’. We then label the x- and y-axes using <a class="reference external" href="https://realpython.com/python-raw-strings/">raw strings</a> and <a class="reference external" href="https://jupyterbook.org/en/stable/content/math.html">LaTeX</a>. We’ll then set the x-axis to a log scale and add gridlines. We’ll use the <code class="docutils literal notranslate"><span class="pre">zorder</span></code> parameter to put the datapoints on top of the gridlines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rjb</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$R_</span><span class="si">{JB}</span><span class="s1">$ [km]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M$ [-]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/519ec99d4913fea5e5af3660d09c138ae18bded77b255cdf19e34e18a4082ab7.png" src="../../_images/519ec99d4913fea5e5af3660d09c138ae18bded77b255cdf19e34e18a4082ab7.png" />
+</div>
+</div>
+</section>
+<section id="plot-of-pga-rotd50-vs-rjb">
+<h3>4.2 Plot of pga_rotd50 vs. rjb<a class="headerlink" href="#plot-of-pga-rotd50-vs-rjb" title="Link to this heading">#</a></h3>
+<p>Let’s also make a plot of <code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code> vs. <code class="docutils literal notranslate"><span class="pre">rjb</span></code>. A problem is that shaking intensity depends jointly on magnitude and distance (among other factors not considered here, like style of faulting and site response), so a plot of <code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code> vs. <code class="docutils literal notranslate"><span class="pre">rjb</span></code> doesn’t make a lot of sense without separately considering <code class="docutils literal notranslate"><span class="pre">magnitude</span></code>. One way to do this would be to make a 3D scatter plot. But 3D scatter plots are often unclear in static visualizations due to depth perception. So instead we’ll make a 2D scatter plot with different colors for different magnitude bins. We’ll use <a class="reference external" href="https://www.w3schools.com/python/numpy/numpy_array_filter.asp">Numpy array filtering</a> to bin the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magnitude_bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">magnitude_bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">filt</span> <span class="o">=</span> <span class="p">(</span><span class="n">magnitude</span> <span class="o">&gt;</span> <span class="n">magnitude_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">magnitude</span> <span class="o">&lt;=</span> <span class="n">magnitude_bins</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rjb</span><span class="p">[</span><span class="n">filt</span><span class="p">],</span> <span class="n">pga_rotd50</span><span class="p">[</span><span class="n">filt</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">magnitude_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; - &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">magnitude_bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$R_</span><span class="si">{JB}</span><span class="s1">$ [km]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$PGA RotD50$ [g]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">1.e-7</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/849640466fba5814e5938dedd0fff4f43154577309047a84feb613a989804516.png" src="../../_images/849640466fba5814e5938dedd0fff4f43154577309047a84feb613a989804516.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="perform-multi-linear-regression-and-residuals-analysis">
+<h2>5. Perform multi-linear regression and residuals analysis<a class="headerlink" href="#perform-multi-linear-regression-and-residuals-analysis" title="Link to this heading">#</a></h2>
+<p>The final task for this training session is to perform a multi-linear regression, and subsequently check whether our model is biased with respect to an unmodeled variable (<code class="docutils literal notranslate"><span class="pre">vs30</span></code> in this case).</p>
+<section id="multi-linear-regression">
+<h3>5.1 Multi-linear regression<a class="headerlink" href="#multi-linear-regression" title="Link to this heading">#</a></h3>
+<p>A very basic and simple functional form for ground motion modeling is:</p>
+<p><span class="math notranslate nohighlight">\(ln \left( Y_{ij} \right) = a + b M_i + d \cdot ln \left(R_{ij} + c \right) + \varepsilon \sigma\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(Y_{ij}\)</span> is the ground motion intensity measure for earthquake event <span class="math notranslate nohighlight">\(i\)</span> recorded at site <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(M_i\)</span> is the magnitude for event <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(R_{ij}\)</span> is the distance from site <span class="math notranslate nohighlight">\(j\)</span> to event <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> are regression constants, <span class="math notranslate nohighlight">\(c\)</span> is a constant that is often fixed (we’ll use <span class="math notranslate nohighlight">\(c = 12\)</span> km here), <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the error, and <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the standard normal variate. These models generally also include a term related to style of faulting since shaking intensity is different for strike-slip, reverse, and normal faults. But we’re ignoring that for simplicity here. Since this is such a basic model and we’re ignoring style of faulting and site response, we expect that <span class="math notranslate nohighlight">\(\sigma\)</span> will be pretty large. Refining the model could reduce <span class="math notranslate nohighlight">\(\sigma\)</span>, resulting in a more accurate model.</p>
+<p>The basic ground motion model is a linear equation that can be represented as:</p>
+<p><span class="math notranslate nohighlight">\(ln(Y) = \sum \beta X\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(ln(Y)\)</span> is a 1D array containing the natural logs of <code class="docutils literal notranslate"><span class="pre">pga_rotd50</span></code>, <span class="math notranslate nohighlight">\(X\)</span> is a multidimensional array representing the model feature(s), and <span class="math notranslate nohighlight">\(\beta\)</span> is an array of model coefficients obtained through least squares regression. The least squares solution is given by:</p>
+<p><span class="math notranslate nohighlight">\(\beta = \left( X^T X \right) ^ {-1} X ^ T Y\)</span></p>
+<p>In this case, <span class="math notranslate nohighlight">\(\beta = [a, b, d]\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> must therefore have dimensions of N x 3, where N is the number of recorded ground motions. To accommodate the intercept term <span class="math notranslate nohighlight">\(a\)</span>, we need to include a column of ones in the <span class="math notranslate nohighlight">\(X\)</span> array. Therefore, we have <span class="math notranslate nohighlight">\(X = [\underline{1}, M, ln(rjb + 12.0)]\)</span>. To form the <span class="math notranslate nohighlight">\(X\)</span> array, we use the Numpy <a class="reference external" href="https://numpy.org/doc/2.3/reference/generated/numpy.vstack.html">vstack</a> operator. The result is an array with dimensions of 3 x N, which is actually <span class="math notranslate nohighlight">\(X^T\)</span>. So we swap the locations of the transpose operator from the least squares regression equation when we solve the linear system of equations. Finally, we use the Numpy linear algebra package solver, <a class="reference external" href="https://numpy.org/doc/2.0/reference/generated/numpy.linalg.solve.html">linalg.solve</a>, to solve for <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rjb</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">magnitude</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rjb</span> <span class="o">+</span> <span class="mf">12.0</span><span class="p">)))</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pga_rotd50</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span> <span class="o">@</span> <span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;beta = &#39;</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beta =  [-3.59265985  1.77995717 -2.46278164]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="residuals-analysis">
+<h3>5.2 Residuals analysis<a class="headerlink" href="#residuals-analysis" title="Link to this heading">#</a></h3>
+<p>Residuals are defined as the measurements minus the model predictions. In this case, we define residuals as <span class="math notranslate nohighlight">\(ln(Y) - \beta X\)</span>. In ground motion modeling, it is common to plot residuals vs. various unmodeled variables to ascertain whether model refinements would provide predictive power, generally quantified by the reduction in <span class="math notranslate nohighlight">\(\sigma\)</span> that could be achieved. Model refinements add complexity, and the decision of whether to introduce a model refinement involves consideration of tradeoffs between simplicity and accuracy, and also the potential for overfitting. In this case, we won’t actually refine the model, but we’ll look at whether the model residuals are biased with respect to <span class="math notranslate nohighlight">\(V_{S30}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute residuals (data minus model) and their standard deviation</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">@</span> <span class="n">X</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.121245602582501
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-residuals-vs-v-s30">
+<h3>5.3 Plot residuals vs. <span class="math notranslate nohighlight">\(V_{S30}\)</span><a class="headerlink" href="#plot-residuals-vs-v-s30" title="Link to this heading">#</a></h3>
+<p>Now let’s look at the residuals vs. <span class="math notranslate nohighlight">\(V_{S30}\)</span> to see if there are any site response effects. There is so much data here that it is often difficult to clearly see the trends. For this reason, we are also plotting binned-means, which we compute by first using the <a class="reference external" href="https://numpy.org/doc/2.0/reference/generated/numpy.argsort.html">numpy.argsort</a> function to compute an array of indices that will sort the <code class="docutils literal notranslate"><span class="pre">vs30</span></code> array in ascending order, then by applying the <a class="reference external" href="https://numpy.org/doc/2.0/reference/generated/numpy.array_split.html">numpy.array_split</a> function to split the sorted array into sub-arrays with approximately equal size. The <code class="docutils literal notranslate"><span class="pre">array_split</span></code> function returns a Python list of Numpy arrays rather than a multi-dimensional Numpy array because the sub-arrays have different sizes, and therefore don’t fit nicely into a Numpy array of defined shape. So we use a Python loop over the list to compute the mean value of each bin instead of using a vectorized Numpy operation. However, the loop has only <code class="docutils literal notranslate"><span class="pre">Nbins</span></code> number of elements, and the computational overhead is light.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">Nbins</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">vs30</span><span class="p">)</span>
+<span class="n">vs30_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">vs30</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">Nbins</span><span class="p">)</span>
+<span class="n">res_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">Nbins</span><span class="p">)</span>
+<span class="n">vs30_binned_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">Nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">res_binned_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">Nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbins</span><span class="p">):</span>
+    <span class="n">vs30_binned_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vs30_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">res_binned_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">res_bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vs30</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vs30_binned_means</span><span class="p">,</span> <span class="n">res_binned_means</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binned means&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$V_</span><span class="si">{S30}</span><span class="s1">$ [m/s]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$res$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-10.0, 10.0)
+</pre></div>
+</div>
+<img alt="../../_images/1f8a7458c7103e6954a85cc926ed24a6c0995795885927d9eff60e0d230135ba.png" src="../../_images/1f8a7458c7103e6954a85cc926ed24a6c0995795885927d9eff60e0d230135ba.png" />
+</div>
+</div>
+</section>
+<section id="conclusions-from-analysis-of-residuals">
+<h3>5.4 Conclusions from analysis of residuals<a class="headerlink" href="#conclusions-from-analysis-of-residuals" title="Link to this heading">#</a></h3>
+<p>We see that the residuals are clearly biased, with positive residuals (under-prediction) corresponding to low <span class="math notranslate nohighlight">\(V_{S30}\)</span>, and negative residuals at high <span class="math notranslate nohighlight">\(V_{S30}\)</span>. Soft soils are known to amplify low-intensity ground motions, and can either amplify or de-amplify large ground motions. This effect is handled in modern ground motion models through analysis of site effects, which are often divided into linear and nonlinear components. We could in principle reduce uncertainty by accounting for <span class="math notranslate nohighlight">\(V_{S30}\)</span> by including it as a model feature. We could also use a better magnitude and distance scaling formulation, and we could account for style of faulting, and other features that influence ground motion. Recall that the functional form we have used here is very basic. The resulting <span class="math notranslate nohighlight">\(\sigma\)</span> is very high compared with modern ground motion models that better account for features known to influence ground motions (e.g., <span class="math notranslate nohighlight">\(\sigma \approx 0.6-0.7\)</span> is more common). Furthermore, modern ground motion models partition uncertainty in the total residuals into different contributions, including event terms and site terms. We won’t refine the model today because we’ve reached the end of the training here, but we didn’t want to leave the impression that we’ve developed a good ground motion model here.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/01-working-with-published-data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-path-to-a-published-dataset">1. Finding the path to a published dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-data-depot">1.1 Search Data Depot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-out-the-project-metadata-and-citation">1.2 Check out the project metadata and citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-readme-file-and-decide-which-data-to-use">1.3 Read the README file and decide which data to use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-designsafe-jupyterhub">1.4 Open DesignSafe JupyterHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browse-to-the-file-you-want-to-open">1.5 Browse to the file you want to open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-path-to-the-file">1.6 Define the path to the file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-to-read-csv-file-and-clean-data">2. Using Pandas to read CSV file and clean data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-file">2.1 Read CSV file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-the-data">2.2 Clean the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-pandas-data-columns-to-numpy-arrays">3. Convert Pandas data columns to Numpy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-matplotlib-to-plot-selected-data-quantities">4. Use Matplotlib to plot selected data quantities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-magnitude-vs-distance">4.1 Plot of magnitude vs. distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-pga-rotd50-vs-rjb">4.2 Plot of pga_rotd50 vs. rjb</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multi-linear-regression-and-residuals-analysis">5. Perform multi-linear regression and residuals analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-linear-regression">5.1 Multi-linear regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-analysis">5.2 Residuals analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-residuals-vs-v-s30">5.3 Plot residuals vs. <span class="math notranslate nohighlight">\(V_{S30}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-from-analysis-of-residuals">5.4 Conclusions from analysis of residuals</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Charlie Dey and Scott J. Brandenberg
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
