@@ -31,11 +31,3 @@ html:
   use_repository_button: true
   extra_navbar: ""
   google_analytics_id: G-XXXXXXXXXX
-
-sphinx:
-  recursive_update: true
-  config:
-    html_theme_options:
-      repository_provider: github
-      show_navbar_depth: 2
-      show_toc_level: 2
