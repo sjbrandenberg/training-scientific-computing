@@ -38,4 +38,4 @@ sphinx:
     html_theme_options:
       repository_provider: github
       show_navbar_depth: 2
-      show_toc_level: 2
+      show_toc_level: 3
