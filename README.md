@@ -20,7 +20,7 @@
 
 BSD 3-Clause License - See [LICENSE](LICENSE.md)
 
-## Jupyter notebookss
+## Jupyter notebooks
 
 **Webinar 1:** 
 [![Try on DesignSafe](https://raw.githubusercontent.com/DesignSafe-CI/training-scientific-computing/main/DesignSafe-Badge.svg)](https://jupyter.designsafe-ci.org/hub/user-redirect/lab/tree/CommunityData/Training/Webinar-Scientific-Computing-2025/01-working-with-published-data.ipynb)
