@@ -5,4 +5,4 @@ format: jb-book
 root: README
 chapters:
   - file: content/01-working-with-published-data
-maxdepth: 3
+maxdepth: 4
