@@ -13,7 +13,7 @@
    - Using Pandas to read CSV files and clean data
    - Converting Pandas data into Numpy arrays
    - Using Matplotlib to plot selected data
-   - Performing multi-linear regression using Numpy matrix operations
+   - Performing multi-linear regression using Numpy matrix operationss
 
 
 ## License
